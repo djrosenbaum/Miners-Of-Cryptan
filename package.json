@@ -1,0 +1,36 @@
+{
+  "name": "Miners-Of-Cryptan",
+  "version": "1.0.0",
+  "description": "Miners of Cryptan - based on the game Settlers of Catan",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha './test/**/*.spec.js'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/djrosenbaum/Miners-Of-Cryptan.git"
+  },
+  "keywords": [],
+  "author": "DJ Rosenbaum",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/djrosenbaum/Miners-Of-Cryptan/issues"
+  },
+  "homepage": "https://github.com/djrosenbaum/Miners-Of-Cryptan#readme",
+  "devDependencies": {
+    "babel-eslint": "^8.0.3",
+    "chai": "^4.1.2",
+    "eslint": "^4.13.1",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-jsdoc": "^3.3.0",
+    "istanbul": "^0.4.5",
+    "jsdoc-to-markdown": "^3.0.3",
+    "jsdom": "^11.5.1",
+    "mocha": "^4.0.1",
+    "sinon": "^4.1.3"
+  },
+  "dependencies": {
+    "lodash": "^4.17.4"
+  }
+}
