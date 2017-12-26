@@ -1,5 +1,5 @@
 const helper = require('../helpers/helpers.js');
-const { terrains } = require('../../src/components/terrain/terrain.js');
+const { terrains } = require('../../src/components/terrains.js');
 const assert = require('assert');
 
 describe('Terrains', function describeTerrains() {
