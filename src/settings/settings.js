@@ -1,7 +1,7 @@
 const settings = {
-  totalPlayers: 3
+  totalPlayers: 3,
 };
 
 module.exports = {
-  settings
+  settings,
 };

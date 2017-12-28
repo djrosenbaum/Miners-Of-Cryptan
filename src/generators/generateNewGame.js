@@ -1,11 +1,14 @@
 const { generateGameTiles } = require('./generateGameTiles.js');
 const { generatePlayers } = require('./generatePlayers.js');
+const { generateRules } = require('./generateRules.js');
 
 function generateNewGame(settings) {
-  return new Promise(function newGame(resolve) {
+  return new Promise((resolve) => {
     const gameBoard = {
+      settings,
       gameTiles: generateGameTiles(),
-      players: generatePlayers(settings.players)
+      players: generatePlayers(settings.players),
+      rules: generateRules(),
     };
 
     resolve(gameBoard);
@@ -13,5 +16,5 @@ function generateNewGame(settings) {
 }
 
 module.exports = {
-  generateNewGame
+  generateNewGame,
 };

@@ -9,7 +9,7 @@ let state = {};
 function buildGameTile(numberToken, index) {
   const gameTile = {
     terrain: state.terrains[index],
-    grid: state.tileGrid[index]
+    grid: state.tileGrid[index],
   };
 
   if (gameTile.terrain === 'desert') {
@@ -30,5 +30,5 @@ function generateGameTiles() {
 }
 
 module.exports = {
-  generateGameTiles
+  generateGameTiles,
 };

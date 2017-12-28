@@ -8,10 +8,10 @@ function player(payload) {
     developmentCards: [],
     resourceCards: [],
     type: payload.type,
-    color: payload.color
+    color: payload.color,
   };
 }
 
 module.exports = {
-  player
+  player,
 };

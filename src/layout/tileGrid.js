@@ -18,10 +18,10 @@ function tileGrid() {
     '2_3',
     '3_2',
     '2_1',
-    '2_2'
+    '2_2',
   ];
 }
 
 module.exports = {
-  tileGrid
+  tileGrid,
 };

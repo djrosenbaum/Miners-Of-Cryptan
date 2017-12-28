@@ -3,10 +3,10 @@ function availableColors() {
     'blue',
     'orange',
     'red',
-    'white'
+    'white',
   ];
 }
 
 module.exports = {
-  availableColors
+  availableColors,
 };

@@ -3,9 +3,9 @@ const resourceProduction = {
   forest: 'lumber',
   mountain: 'ore',
   field: 'grain',
-  pasture: 'wood'
+  pasture: 'wood',
 };
 
 module.exports = {
-  resourceProduction
+  resourceProduction,
 };

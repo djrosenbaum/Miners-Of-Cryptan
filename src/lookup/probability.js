@@ -9,9 +9,9 @@ const probability = {
   9: 4,
   10: 3,
   11: 2,
-  12: 1
+  12: 1,
 };
 
 module.exports = {
-  probability
+  probability,
 };

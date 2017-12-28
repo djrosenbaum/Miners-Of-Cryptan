@@ -20,19 +20,12 @@ function setPlayerColor(colors, settings, index) {
 function generatePlayers(settings) {
   const colors = _.shuffle(availableColors());
 
-  return _.shuffle(_.times(settings.totalPlayers, function loopPlayer(index) {
-    return player({
-      type: setPlayerType(index),
-      color: setPlayerColor(colors, settings, index)
-    });
-  }));
+  return _.shuffle(_.times(settings.totalPlayers, index => (player({
+    type: setPlayerType(index),
+    color: setPlayerColor(colors, settings, index),
+  }))));
 }
 
-// console.log(generatePlayers({
-//   color: 'orange',
-//   totalPlayers: 3
-// }));
-
 module.exports = {
-  generatePlayers
+  generatePlayers,
 };

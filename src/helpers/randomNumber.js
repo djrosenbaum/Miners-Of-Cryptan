@@ -3,5 +3,5 @@ function randomNumber(low, high) {
 }
 
 module.exports = {
-  randomNumber
+  randomNumber,
 };

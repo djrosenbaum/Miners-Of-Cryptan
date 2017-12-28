@@ -2,79 +2,79 @@ function numberTokens() {
   return [
     {
       number: 5,
-      letter: 'a'
+      letter: 'a',
     },
     {
       number: 2,
-      letter: 'b'
+      letter: 'b',
     },
     {
       number: 6,
-      letter: 'c'
+      letter: 'c',
     },
     {
       number: 3,
-      letter: 'd'
+      letter: 'd',
     },
     {
       number: 8,
-      letter: 'e'
+      letter: 'e',
     },
     {
       number: 10,
-      letter: 'f'
+      letter: 'f',
     },
     {
       number: 9,
-      letter: 'g'
+      letter: 'g',
     },
     {
       number: 12,
-      letter: 'h'
+      letter: 'h',
     },
     {
       number: 11,
-      letter: 'i'
+      letter: 'i',
     },
     {
       number: 4,
-      letter: 'j'
+      letter: 'j',
     },
     {
       number: 8,
-      letter: 'k'
+      letter: 'k',
     },
     {
       number: 10,
-      letter: 'l'
+      letter: 'l',
     },
     {
       number: 9,
-      letter: 'm'
+      letter: 'm',
     },
     {
       number: 4,
-      letter: 'n'
+      letter: 'n',
     },
     {
       number: 5,
-      letter: 'o'
+      letter: 'o',
     },
     {
       number: 6,
-      letter: 'p'
+      letter: 'p',
     },
     {
       number: 3,
-      letter: 'q'
+      letter: 'q',
     },
     {
       number: 11,
-      letter: 'r'
-    }
+      letter: 'r',
+    },
   ];
 }
 
 module.exports = {
-  numberTokens
+  numberTokens,
 };

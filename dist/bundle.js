@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 1);
+/******/ 	return __webpack_require__(__webpack_require__.s = 2);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -17153,98 +17153,66 @@
   }
 }.call(this));
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4), __webpack_require__(5)(module)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3), __webpack_require__(4)(module)))
 
 /***/ }),
 /* 1 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
-const { generateNewGame } = __webpack_require__(2);
-
-function layoutBoard(game) {
-  console.log('layout board!');
-  console.log(game);
+function roundToNearest(num, toNearest) {
+  return Math.round(100 * num) / toNearest;
 }
 
-function startNewGame() {
-  generateNewGame({
-    players: {
-      color: 'orange',
-      totalPlayers: 3
-    }
-  }).then((game) => {
-    layoutBoard(game);
-  });
-}
-
-startNewGame();
+module.exports = {
+  roundToNearest,
+};
 
 
 /***/ }),
 /* 2 */
 /***/ (function(module, exports, __webpack_require__) {
 
-const { generateGameTiles } = __webpack_require__(3);
-const { generatePlayers } = __webpack_require__(9);
+const _ = __webpack_require__(0);
+const { generateNewGame } = __webpack_require__(5);
+const { generateNewLayout } = __webpack_require__(19);
+const { generateSVG } = __webpack_require__(23);
 
-function generateNewGame(settings) {
-  return new Promise(function newGame(resolve) {
-    const gameBoard = {
-      gameTiles: generateGameTiles(),
-      players: generatePlayers(settings.players)
-    };
+const settings = {
+  players: {
+    color: 'orange',
+    totalPlayers: 3,
+  },
+};
 
-    resolve(gameBoard);
-  });
+function startNewGame() {
+  generateNewGame(settings)
+    .then(generateNewLayout)
+    .then(generateSVG)
+    .then((gameboard) => {
+      const catan = document.getElementById('catan');
+      _.each(gameboard.svg.hexagons, (group) => {
+        catan.appendChild(group);
+      });
+
+      _.each(gameboard.svg.segments, (segment) => {
+        catan.appendChild(segment);
+      });
+
+      _.each(gameboard.svg.nodes, (node) => {
+        catan.appendChild(node);
+      });
+      console.log('success!');
+      console.log(gameboard);
+    });
 }
 
-module.exports = {
-  generateNewGame
-};
+document.addEventListener('DOMContentLoaded', () => {
+  startNewGame();
+});
 
 
 /***/ }),
 /* 3 */
-/***/ (function(module, exports, __webpack_require__) {
-
-const _ = __webpack_require__(0);
-const { terrains } = __webpack_require__(6);
-const { numberTokens } = __webpack_require__(7);
-// const { randomNumber } = require('../helpers/randomNumber.js');
-const { tileGrid } = __webpack_require__(8);
-
-let state = {};
-
-function buildGameTile(numberToken, index) {
-  const gameTile = {
-    terrain: state.terrains[index],
-    grid: state.tileGrid[index]
-  };
-
-  if (gameTile.terrain === 'desert') {
-    gameTile.robber = true;
-  }
-
-  return _.merge(numberToken, gameTile);
-}
-
-function generateGameTiles() {
-  state = {};
-  state.terrains = terrains();
-  state.tileGrid = tileGrid();
-  state.numberTokens = numberTokens();
-  state.numberTokens.splice(state.terrains.indexOf('desert'), 0, {});
-
-  return _.forEach(state.numberTokens, buildGameTile);
-}
-
-module.exports = {
-  generateGameTiles
-};
-
-
-/***/ }),
-/* 4 */
 /***/ (function(module, exports) {
 
 var g;
@@ -17271,7 +17239,7 @@ module.exports = g;
 
 
 /***/ }),
-/* 5 */
+/* 4 */
 /***/ (function(module, exports) {
 
 module.exports = function(module) {
@@ -17299,37 +17267,103 @@ module.exports = function(module) {
 
 
 /***/ }),
+/* 5 */
+/***/ (function(module, exports, __webpack_require__) {
+
+const { generateGameTiles } = __webpack_require__(6);
+const { generatePlayers } = __webpack_require__(10);
+const { generateRules } = __webpack_require__(13);
+
+function generateNewGame(settings) {
+  return new Promise((resolve) => {
+    const gameBoard = {
+      settings,
+      gameTiles: generateGameTiles(),
+      players: generatePlayers(settings.players),
+      rules: generateRules(),
+    };
+
+    resolve(gameBoard);
+  });
+}
+
+module.exports = {
+  generateNewGame,
+};
+
+
+/***/ }),
 /* 6 */
+/***/ (function(module, exports, __webpack_require__) {
+
+const _ = __webpack_require__(0);
+const { terrains } = __webpack_require__(7);
+const { numberTokens } = __webpack_require__(8);
+// const { randomNumber } = require('../helpers/randomNumber.js');
+const { tileGrid } = __webpack_require__(9);
+
+let state = {};
+
+function buildGameTile(numberToken, index) {
+  const gameTile = {
+    terrain: state.terrains[index],
+    grid: state.tileGrid[index],
+  };
+
+  if (gameTile.terrain === 'desert') {
+    gameTile.robber = true;
+  }
+
+  return _.merge(numberToken, gameTile);
+}
+
+function generateGameTiles() {
+  state = {};
+  state.terrains = terrains();
+  state.tileGrid = tileGrid();
+  state.numberTokens = numberTokens();
+  state.numberTokens.splice(state.terrains.indexOf('desert'), 0, {});
+
+  return _.forEach(state.numberTokens, buildGameTile);
+}
+
+module.exports = {
+  generateGameTiles,
+};
+
+
+/***/ }),
+/* 7 */
 /***/ (function(module, exports, __webpack_require__) {
 
 const _ = __webpack_require__(0);
 
 const terrainConfig = {
   hill: {
-    total: 3
+    total: 3,
   },
   forest: {
-    total: 4
+    total: 4,
   },
   mountain: {
-    total: 3
+    total: 3,
   },
   field: {
-    total: 4
+    total: 4,
   },
   pasture: {
-    total: 4
+    total: 4,
   },
   desert: {
-    total: 1
-  }
+    total: 1,
+  },
 };
 
 function generateTerrainArray() {
   const terrainArray = [];
 
   function pushTerrain(terrain, key) {
-    _.times(terrain.total, function times() {
+    _.times(terrain.total, () => {
       terrainArray.push(key);
     });
   }
@@ -17344,98 +17378,98 @@ function terrains() {
 }
 
 module.exports = {
-  terrains
+  terrains,
 };
 
 
 /***/ }),
-/* 7 */
+/* 8 */
 /***/ (function(module, exports) {
 
 function numberTokens() {
   return [
     {
       number: 5,
-      letter: 'a'
+      letter: 'a',
     },
     {
       number: 2,
-      letter: 'b'
+      letter: 'b',
     },
     {
       number: 6,
-      letter: 'c'
+      letter: 'c',
     },
     {
       number: 3,
-      letter: 'd'
+      letter: 'd',
     },
     {
       number: 8,
-      letter: 'e'
+      letter: 'e',
     },
     {
       number: 10,
-      letter: 'f'
+      letter: 'f',
     },
     {
       number: 9,
-      letter: 'g'
+      letter: 'g',
     },
     {
       number: 12,
-      letter: 'h'
+      letter: 'h',
     },
     {
       number: 11,
-      letter: 'i'
+      letter: 'i',
     },
     {
       number: 4,
-      letter: 'j'
+      letter: 'j',
     },
     {
       number: 8,
-      letter: 'k'
+      letter: 'k',
     },
     {
       number: 10,
-      letter: 'l'
+      letter: 'l',
     },
     {
       number: 9,
-      letter: 'm'
+      letter: 'm',
     },
     {
       number: 4,
-      letter: 'n'
+      letter: 'n',
     },
     {
       number: 5,
-      letter: 'o'
+      letter: 'o',
     },
     {
       number: 6,
-      letter: 'p'
+      letter: 'p',
     },
     {
       number: 3,
-      letter: 'q'
+      letter: 'q',
     },
     {
       number: 11,
-      letter: 'r'
-    }
+      letter: 'r',
+    },
   ];
 }
 
 module.exports = {
-  numberTokens
+  numberTokens,
 };
 
 
 /***/ }),
-/* 8 */
+/* 9 */
 /***/ (function(module, exports) {
 
 function tileGrid() {
@@ -17458,22 +17492,22 @@ function tileGrid() {
     '2_3',
     '3_2',
     '2_1',
-    '2_2'
+    '2_2',
   ];
 }
 
 module.exports = {
-  tileGrid
+  tileGrid,
 };
 
 
 /***/ }),
-/* 9 */
+/* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
 const _ = __webpack_require__(0);
-const { player } = __webpack_require__(10);
-const { availableColors } = __webpack_require__(11);
+const { player } = __webpack_require__(11);
+const { availableColors } = __webpack_require__(12);
 
 function setPlayerType(index) {
   if (index === 0) {
@@ -17493,26 +17527,19 @@ function setPlayerColor(colors, settings, index) {
 function generatePlayers(settings) {
   const colors = _.shuffle(availableColors());
 
-  return _.shuffle(_.times(settings.totalPlayers, function loopPlayer(index) {
-    return player({
-      type: setPlayerType(index),
-      color: setPlayerColor(colors, settings, index)
-    });
-  }));
+  return _.shuffle(_.times(settings.totalPlayers, index => (player({
+    type: setPlayerType(index),
+    color: setPlayerColor(colors, settings, index),
+  }))));
 }
 
-// console.log(generatePlayers({
-//   color: 'orange',
-//   totalPlayers: 3
-// }));
-
 module.exports = {
-  generatePlayers
+  generatePlayers,
 };
 
 
 /***/ }),
-/* 10 */
+/* 11 */
 /***/ (function(module, exports) {
 
 function player(payload) {
@@ -17525,17 +17552,17 @@ function player(payload) {
     developmentCards: [],
     resourceCards: [],
     type: payload.type,
-    color: payload.color
+    color: payload.color,
   };
 }
 
 module.exports = {
-  player
+  player,
 };
 
 
 /***/ }),
-/* 11 */
+/* 12 */
 /***/ (function(module, exports) {
 
 function availableColors() {
@@ -17543,12 +17570,368 @@ function availableColors() {
     'blue',
     'orange',
     'red',
-    'white'
+    'white',
   ];
 }
 
 module.exports = {
-  availableColors
+  availableColors,
+};
+
+
+/***/ }),
+/* 13 */
+/***/ (function(module, exports, __webpack_require__) {
+
+const { buildingCostCard } = __webpack_require__(14);
+const { largestArmy } = __webpack_require__(15);
+const { longestRoad } = __webpack_require__(16);
+const { probability } = __webpack_require__(17);
+const { resourceProduction } = __webpack_require__(18);
+
+function generateRules() {
+  return {
+    buildingCostCard,
+    largestArmy,
+    longestRoad,
+    probability,
+    resourceProduction,
+  };
+}
+
+module.exports = {
+  generateRules,
+};
+
+
+/***/ }),
+/* 14 */
+/***/ (function(module, exports) {
+
+const buildingCostCard = {
+  road: ['lumber', 'brick'],
+  settlement: ['lumber', 'brick', 'grain', 'sheep'],
+  city: ['grain', 'grain', 'ore', 'ore', 'ore'],
+  developmentCard: ['grain', 'sheep', 'ore'],
+};
+
+module.exports = {
+  buildingCostCard,
+};
+
+
+/***/ }),
+/* 15 */
+/***/ (function(module, exports) {
+
+const largestArmy = {
+  minimumKnights: 3,
+  victory: 2,
+};
+
+module.exports = {
+  largestArmy,
+};
+
+
+/***/ }),
+/* 16 */
+/***/ (function(module, exports) {
+
+const longestRoad = {
+  minimumSegments: 5,
+  victory: 2,
+};
+
+module.exports = {
+  longestRoad,
+};
+
+
+/***/ }),
+/* 17 */
+/***/ (function(module, exports) {
+
+const probability = {
+  2: 1,
+  3: 2,
+  4: 3,
+  5: 4,
+  6: 5,
+  7: 6,
+  8: 5,
+  9: 4,
+  10: 3,
+  11: 2,
+  12: 1,
+};
+
+module.exports = {
+  probability,
+};
+
+
+/***/ }),
+/* 18 */
+/***/ (function(module, exports) {
+
+const resourceProduction = {
+  hill: 'brick',
+  forest: 'lumber',
+  mountain: 'ore',
+  field: 'grain',
+  pasture: 'wood',
+};
+
+module.exports = {
+  resourceProduction,
+};
+
+
+/***/ }),
+/* 19 */
+/***/ (function(module, exports, __webpack_require__) {
+
+const _ = __webpack_require__(0);
+const { generateGrid } = __webpack_require__(20);
+const { generateCenterPoints } = __webpack_require__(21);
+const { generateHexPoints } = __webpack_require__(22);
+
+function generateNewLayout(gameboard) {
+  return new Promise((resolve) => {
+    const grid = generateGrid(5, 5);
+    const centerPoints = generateCenterPoints(grid);
+    const hexPoints = generateHexPoints(centerPoints);
+
+    const hexagons = grid.map((coordinate, index) => (
+      {
+        coordinate: grid[index],
+        centerPoint: centerPoints[index],
+        points: hexPoints[index],
+      }));
+
+    resolve(_.merge(gameboard, {
+      layout: {
+        hexagons,
+      },
+    }));
+  });
+}
+
+module.exports = {
+  generateNewLayout,
+};
+
+
+/***/ }),
+/* 20 */
+/***/ (function(module, exports, __webpack_require__) {
+
+const _ = __webpack_require__(0);
+
+const excludedCoordinates = ['0_0', '0_4', '4_0', '4_1', '4_3', '4_4'];
+
+function generateGrid(columns, rows) {
+  return _.flatten(_.times(columns, column => (
+    _.times(rows, row => (
+      [column, row]
+    )).filter(val => (
+      excludedCoordinates.indexOf(val.join('_')) === -1
+    ))
+  )));
+}
+
+module.exports = {
+  generateGrid,
+};
+
+
+/***/ }),
+/* 21 */
+/***/ (function(module, exports, __webpack_require__) {
+
+const { roundToNearest } = __webpack_require__(1);
+
+function generateCenterPoints(grid) {
+  const radius = 30;
+  const offset = (Math.sqrt(3) * radius) / 2;
+  let x;
+  let y;
+
+  return grid.map((gridCoordinate) => {
+    const [column, row] = gridCoordinate;
+
+    x = 40 + (offset * column * 2); // 40 pushes the grid off the left edge of svg viewbox
+    y = 40 + (offset * row * Math.sqrt(3));
+    if (row % 2 !== 0) {
+      x += offset;
+    }
+    return [roundToNearest(x, 100), roundToNearest(y, 100)];
+  });
+}
+
+module.exports = {
+  generateCenterPoints,
+};
+
+
+/***/ }),
+/* 22 */
+/***/ (function(module, exports, __webpack_require__) {
+
+const { roundToNearest } = __webpack_require__(1);
+
+function pointX(x, theta, radius) {
+  const point = x + (radius * Math.sin(theta));
+  return roundToNearest(point, 100);
+}
+
+function pointY(y, theta, radius) {
+  const point = y + (radius * Math.cos(theta));
+  return roundToNearest(point, 100);
+}
+
+function generateHexPoints(centerPoints) {
+  const radius = 30;
+
+  return centerPoints.map((coordinate) => {
+    const [x, y] = coordinate;
+    const hexPoints = [];
+
+    for (let theta = 0; theta < Math.PI * 2; theta += Math.PI / 3) {
+      hexPoints.push([pointX(x, theta, radius), pointY(y, theta, radius)]);
+    }
+
+    return hexPoints;
+  });
+}
+
+module.exports = {
+  generateHexPoints,
+};
+
+
+/***/ }),
+/* 23 */
+/***/ (function(module, exports, __webpack_require__) {
+
+const _ = __webpack_require__(0);
+const { buildHexagons } = __webpack_require__(24);
+const { buildSegments } = __webpack_require__(25);
+const { buildNodes } = __webpack_require__(26);
+
+function generateSVG(gameboard) {
+  return new Promise((resolve) => {
+    const svg = {};
+    svg.hexagons = buildHexagons(gameboard);
+    svg.segments = buildSegments(gameboard);
+    svg.nodes = buildNodes(gameboard);
+
+    resolve(_.merge(gameboard, { svg }));
+  });
+}
+
+module.exports = {
+  generateSVG,
+};
+
+
+/***/ }),
+/* 24 */
+/***/ (function(module, exports) {
+
+function buildHexagons(gameboard) {
+  return gameboard.layout.hexagons.map((hexagon) => {
+    const group = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+
+    const polygon = document.createElementNS('http://www.w3.org/2000/svg', 'polygon');
+    polygon.setAttribute('points', hexagon.points.join(' '));
+
+    const circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+    circle.setAttribute('r', 0.5);
+    circle.setAttribute('cx', hexagon.centerPoint[0]);
+    circle.setAttribute('cy', hexagon.centerPoint[1]);
+
+    group.appendChild(polygon);
+    group.appendChild(circle);
+
+    return group;
+  });
+}
+
+module.exports = {
+  buildHexagons,
+};
+
+
+/***/ }),
+/* 25 */
+/***/ (function(module, exports, __webpack_require__) {
+
+const _ = __webpack_require__(0);
+
+function buildSegmentsArray(gameboard) {
+  const segmentArray = _.flattenDepth(gameboard.layout.hexagons.map((hexagon) => {
+    const [p1, p2, p3, p4, p5, p6] = hexagon.points;
+    return [
+      [p1, p2],
+      [p2, p3],
+      [p3, p4],
+      [p4, p5],
+      [p5, p6],
+      [p6, p1],
+    ];
+  }), 1);
+
+  return _.uniqBy(segmentArray, (segment) => {
+    const segmentCopy = _.clone(segment);
+    return _.flatten(segmentCopy).sort().join(',');
+  });
+}
+
+function buildSegments(gameboard) {
+  return buildSegmentsArray(gameboard).map((segment) => {
+    const [x1, y1] = segment[0];
+    const [x2, y2] = segment[1];
+    const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+    line.setAttribute('x1', x1);
+    line.setAttribute('y1', y1);
+    line.setAttribute('x2', x2);
+    line.setAttribute('y2', y2);
+    return line;
+  });
+}
+
+module.exports = {
+  buildSegments,
+};
+
+
+/***/ }),
+/* 26 */
+/***/ (function(module, exports, __webpack_require__) {
+
+const _ = __webpack_require__(0);
+
+function buildPointsArray(gameboard) {
+  return _.uniqWith(_.flattenDepth(gameboard.layout.hexagons
+    .map(hexagon => (hexagon.points)), 1), _.isEqual);
+}
+
+function buildNodes(gameboard) {
+  return buildPointsArray(gameboard).map((point) => {
+    const [cx, cy] = point;
+    const circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+    circle.setAttribute('r', 0.5);
+    circle.setAttribute('cx', cx);
+    circle.setAttribute('cy', cy);
+
+    return circle;
+  });
+}
+
+module.exports = {
+  buildNodes,
 };
 
 
