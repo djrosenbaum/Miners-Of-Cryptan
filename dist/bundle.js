@@ -17153,7 +17153,7 @@
   }
 }.call(this));
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3), __webpack_require__(4)(module)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5), __webpack_require__(6)(module)))
 
 /***/ }),
 /* 1 */
@@ -17172,10 +17172,11 @@ module.exports = {
 /* 2 */
 /***/ (function(module, exports, __webpack_require__) {
 
-const _ = __webpack_require__(0);
-const { generateNewGame } = __webpack_require__(5);
+// const _ = require('lodash');
+const { generateNewGame } = __webpack_require__(3);
 const { generateNewLayout } = __webpack_require__(19);
 const { generateSVG } = __webpack_require__(23);
+const { appendSVG } = __webpack_require__(27);
 
 const settings = {
   players: {
@@ -17188,19 +17189,8 @@ function startNewGame() {
   generateNewGame(settings)
     .then(generateNewLayout)
     .then(generateSVG)
+    .then(appendSVG)
     .then((gameboard) => {
-      const catan = document.getElementById('catan');
-      _.each(gameboard.svg.hexagons, (group) => {
-        catan.appendChild(group);
-      });
-
-      _.each(gameboard.svg.segments, (segment) => {
-        catan.appendChild(segment);
-      });
-
-      _.each(gameboard.svg.nodes, (node) => {
-        catan.appendChild(node);
-      });
       console.log('success!');
       console.log(gameboard);
     });
@@ -17213,64 +17203,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
 /***/ }),
 /* 3 */
-/***/ (function(module, exports) {
-
-var g;
-
-// This works in non-strict mode
-g = (function() {
-	return this;
-})();
-
-try {
-	// This works if eval is allowed (see CSP)
-	g = g || Function("return this")() || (1,eval)("this");
-} catch(e) {
-	// This works if the window reference is available
-	if(typeof window === "object")
-		g = window;
-}
-
-// g can still be undefined, but nothing to do about it...
-// We return undefined, instead of nothing here, so it's
-// easier to handle this case. if(!global) { ...}
-
-module.exports = g;
-
-
-/***/ }),
-/* 4 */
-/***/ (function(module, exports) {
-
-module.exports = function(module) {
-	if(!module.webpackPolyfill) {
-		module.deprecate = function() {};
-		module.paths = [];
-		// module.parent = undefined by default
-		if(!module.children) module.children = [];
-		Object.defineProperty(module, "loaded", {
-			enumerable: true,
-			get: function() {
-				return module.l;
-			}
-		});
-		Object.defineProperty(module, "id", {
-			enumerable: true,
-			get: function() {
-				return module.i;
-			}
-		});
-		module.webpackPolyfill = 1;
-	}
-	return module;
-};
-
-
-/***/ }),
-/* 5 */
 /***/ (function(module, exports, __webpack_require__) {
 
-const { generateGameTiles } = __webpack_require__(6);
+const { generateGameTiles } = __webpack_require__(4);
 const { generatePlayers } = __webpack_require__(10);
 const { generateRules } = __webpack_require__(13);
 
@@ -17293,7 +17228,7 @@ module.exports = {
 
 
 /***/ }),
-/* 6 */
+/* 4 */
 /***/ (function(module, exports, __webpack_require__) {
 
 const _ = __webpack_require__(0);
@@ -17329,6 +17264,61 @@ function generateGameTiles() {
 
 module.exports = {
   generateGameTiles,
+};
+
+
+/***/ }),
+/* 5 */
+/***/ (function(module, exports) {
+
+var g;
+
+// This works in non-strict mode
+g = (function() {
+	return this;
+})();
+
+try {
+	// This works if eval is allowed (see CSP)
+	g = g || Function("return this")() || (1,eval)("this");
+} catch(e) {
+	// This works if the window reference is available
+	if(typeof window === "object")
+		g = window;
+}
+
+// g can still be undefined, but nothing to do about it...
+// We return undefined, instead of nothing here, so it's
+// easier to handle this case. if(!global) { ...}
+
+module.exports = g;
+
+
+/***/ }),
+/* 6 */
+/***/ (function(module, exports) {
+
+module.exports = function(module) {
+	if(!module.webpackPolyfill) {
+		module.deprecate = function() {};
+		module.paths = [];
+		// module.parent = undefined by default
+		if(!module.children) module.children = [];
+		Object.defineProperty(module, "loaded", {
+			enumerable: true,
+			get: function() {
+				return module.l;
+			}
+		});
+		Object.defineProperty(module, "id", {
+			enumerable: true,
+			get: function() {
+				return module.i;
+			}
+		});
+		module.webpackPolyfill = 1;
+	}
+	return module;
 };
 
 
@@ -17932,6 +17922,37 @@ function buildNodes(gameboard) {
 
 module.exports = {
   buildNodes,
+};
+
+
+/***/ }),
+/* 27 */
+/***/ (function(module, exports, __webpack_require__) {
+
+const _ = __webpack_require__(0);
+
+function appendSVG(gameboard) {
+  return new Promise((resolve) => {
+    const catan = document.getElementById('catan');
+
+    _.each(gameboard.svg.hexagons, (group) => {
+      catan.appendChild(group);
+    });
+
+    _.each(gameboard.svg.segments, (segment) => {
+      catan.appendChild(segment);
+    });
+
+    _.each(gameboard.svg.nodes, (node) => {
+      catan.appendChild(node);
+    });
+
+    resolve(gameboard);
+  });
+}
+
+module.exports = {
+  appendSVG,
 };
 
 
