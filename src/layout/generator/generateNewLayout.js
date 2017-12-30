@@ -9,18 +9,15 @@ function generateNewLayout(gameboard) {
     const centerPoints = generateCenterPoints(grid);
     const hexPoints = generateHexPoints(centerPoints);
 
-    const hexagons = grid.map((coordinate, index) => (
+    const layout = {};
+    layout.hexagons = grid.map((coordinate, index) => (
       {
         coordinate: grid[index],
         centerPoint: centerPoints[index],
         points: hexPoints[index],
       }));
 
-    resolve(_.merge(gameboard, {
-      layout: {
-        hexagons,
-      },
-    }));
+    resolve(_.merge(gameboard, { layout }));
   });
 }
 
