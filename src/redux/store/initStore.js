@@ -1,6 +1,6 @@
 import _ from 'lodash';
 import { createStore } from 'redux';
-import reducers from './reducers';
+import reducers from '../reducers/reducers';
 
 function initStore(gameboard) {
   return new Promise((resolve) => {

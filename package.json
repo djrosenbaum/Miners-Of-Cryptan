@@ -19,7 +19,11 @@
   },
   "homepage": "https://github.com/djrosenbaum/Miners-Of-Cryptan#readme",
   "devDependencies": {
+    "babel-core": "^6.26.0",
     "babel-eslint": "^8.0.3",
+    "babel-loader": "^7.1.2",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-es2017": "^6.24.1",
     "chai": "^4.1.2",
     "eslint": "^4.13.1",
     "eslint-config-airbnb-base": "^12.1.0",

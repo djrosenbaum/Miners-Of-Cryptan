@@ -35,9 +35,3 @@ function startNewGame() {
 document.addEventListener('DOMContentLoaded', () => {
   startNewGame();
 });
-
-// import generateNewGame from './generators/generateNewGame';
-// import generateNewLayout from './layout/generator/generateNewLayout';
-// import generateSVG from './layout/generator/generateSVG';
-// import initStore from './redux/store/initStore';
-// import appendSVG from './layout/svg/appendSVG';
