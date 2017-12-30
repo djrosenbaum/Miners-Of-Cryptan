@@ -17212,15 +17212,14 @@ module.exports = function(module) {
 
 /***/ }),
 /* 3 */
-/***/ (function(module, exports) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 function roundToNearest(num, toNearest) {
   return Math.round(100 * num) / toNearest;
 }
 
-module.exports = {
-  roundToNearest,
-};
+/* harmony default export */ __webpack_exports__["a"] = (roundToNearest);
 
 
 /***/ }),
@@ -17228,18 +17227,17 @@ module.exports = {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* WEBPACK VAR INJECTION */(function(process) {/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__createStore__ = __webpack_require__(6);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__combineReducers__ = __webpack_require__(46);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__bindActionCreators__ = __webpack_require__(47);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__applyMiddleware__ = __webpack_require__(48);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__compose__ = __webpack_require__(10);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__utils_warning__ = __webpack_require__(9);
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "createStore", function() { return __WEBPACK_IMPORTED_MODULE_0__createStore__["b"]; });
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "combineReducers", function() { return __WEBPACK_IMPORTED_MODULE_1__combineReducers__["a"]; });
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "bindActionCreators", function() { return __WEBPACK_IMPORTED_MODULE_2__bindActionCreators__["a"]; });
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "applyMiddleware", function() { return __WEBPACK_IMPORTED_MODULE_3__applyMiddleware__["a"]; });
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "compose", function() { return __WEBPACK_IMPORTED_MODULE_4__compose__["a"]; });
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return __WEBPACK_IMPORTED_MODULE_0__createStore__["b"]; });
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_1__combineReducers__["a"]; });
+/* unused harmony reexport bindActionCreators */
+/* unused harmony reexport applyMiddleware */
+/* unused harmony reexport compose */
 
 
 
@@ -17864,14 +17862,20 @@ function compose() {
 
 /***/ }),
 /* 11 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-// const _ = require('lodash');
-const { generateNewGame } = __webpack_require__(12);
-const { generateNewLayout } = __webpack_require__(26);
-const { generateSVG } = __webpack_require__(30);
-const { initStore } = __webpack_require__(34);
-const { appendSVG } = __webpack_require__(50);
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__generators_generateNewGame__ = __webpack_require__(12);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__layout_generator_generateNewLayout__ = __webpack_require__(26);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__layout_generator_generateSVG__ = __webpack_require__(30);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__redux_store_initStore__ = __webpack_require__(34);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__layout_svg_appendSVG__ = __webpack_require__(50);
+
+
+
+
+
 
 const settings = {
   players: {
@@ -17881,11 +17885,11 @@ const settings = {
 };
 
 function startNewGame() {
-  generateNewGame(settings)
-    .then(generateNewLayout)
-    .then(initStore)
-    .then(generateSVG)
-    .then(appendSVG)
+  Object(__WEBPACK_IMPORTED_MODULE_0__generators_generateNewGame__["a" /* default */])(settings)
+    .then(__WEBPACK_IMPORTED_MODULE_1__layout_generator_generateNewLayout__["a" /* default */])
+    .then(__WEBPACK_IMPORTED_MODULE_3__redux_store_initStore__["a" /* default */])
+    .then(__WEBPACK_IMPORTED_MODULE_2__layout_generator_generateSVG__["a" /* default */])
+    .then(__WEBPACK_IMPORTED_MODULE_4__layout_svg_appendSVG__["a" /* default */])
     .then((gameboard) => {
       window.gameboard = gameboard;
 
@@ -17895,7 +17899,7 @@ function startNewGame() {
       // dispatch settlement placement
       gameboard.store.dispatch({
         type: 'ADD_SETTLEMENT',
-        index: 2,
+        index: 0,
         coordinate: [169.9, 55],
       });
     });
@@ -17905,42 +17909,55 @@ document.addEventListener('DOMContentLoaded', () => {
   startNewGame();
 });
 
+// import generateNewGame from './generators/generateNewGame';
+// import generateNewLayout from './layout/generator/generateNewLayout';
+// import generateSVG from './layout/generator/generateSVG';
+// import initStore from './redux/store/initStore';
+// import appendSVG from './layout/svg/appendSVG';
+
 
 /***/ }),
 /* 12 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-const { generateGameTiles } = __webpack_require__(13);
-const { generatePlayers } = __webpack_require__(17);
-const { generateRules } = __webpack_require__(20);
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__generateGameTiles__ = __webpack_require__(13);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__generatePlayers__ = __webpack_require__(17);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__generateRules__ = __webpack_require__(20);
+
+
+
 
 function generateNewGame(settings) {
   return new Promise((resolve) => {
     const gameBoard = {
       settings,
-      gameTiles: generateGameTiles(),
-      players: generatePlayers(settings.players),
-      rules: generateRules(),
+      gameTiles: Object(__WEBPACK_IMPORTED_MODULE_0__generateGameTiles__["a" /* default */])(),
+      players: Object(__WEBPACK_IMPORTED_MODULE_1__generatePlayers__["a" /* default */])(settings.players),
+      rules: Object(__WEBPACK_IMPORTED_MODULE_2__generateRules__["a" /* default */])(),
     };
 
     resolve(gameBoard);
   });
 }
 
-module.exports = {
-  generateNewGame,
-};
+/* harmony default export */ __webpack_exports__["a"] = (generateNewGame);
 
 
 /***/ }),
 /* 13 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-const _ = __webpack_require__(0);
-const { terrains } = __webpack_require__(14);
-const { numberTokens } = __webpack_require__(15);
-// const { randomNumber } = require('../helpers/randomNumber.js');
-const { tileGrid } = __webpack_require__(16);
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_lodash__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_lodash___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_lodash__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_terrains__ = __webpack_require__(14);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_numberTokens__ = __webpack_require__(15);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__layout_tileGrid__ = __webpack_require__(16);
+
+
+
+
 
 let state = {};
 
@@ -17954,29 +17971,30 @@ function buildGameTile(numberToken, index) {
     gameTile.robber = true;
   }
 
-  return _.merge(numberToken, gameTile);
+  return __WEBPACK_IMPORTED_MODULE_0_lodash___default.a.merge(numberToken, gameTile);
 }
 
 function generateGameTiles() {
   state = {};
-  state.terrains = terrains();
-  state.tileGrid = tileGrid();
-  state.numberTokens = numberTokens();
+  state.terrains = Object(__WEBPACK_IMPORTED_MODULE_1__components_terrains__["a" /* default */])();
+  state.tileGrid = Object(__WEBPACK_IMPORTED_MODULE_3__layout_tileGrid__["a" /* default */])();
+  state.numberTokens = Object(__WEBPACK_IMPORTED_MODULE_2__components_numberTokens__["a" /* default */])();
   state.numberTokens.splice(state.terrains.indexOf('desert'), 0, {});
 
-  return _.forEach(state.numberTokens, buildGameTile);
+  return __WEBPACK_IMPORTED_MODULE_0_lodash___default.a.forEach(state.numberTokens, buildGameTile);
 }
 
-module.exports = {
-  generateGameTiles,
-};
+/* harmony default export */ __webpack_exports__["a"] = (generateGameTiles);
 
 
 /***/ }),
 /* 14 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-const _ = __webpack_require__(0);
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_lodash__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_lodash___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_lodash__);
+
 
 const terrainConfig = {
   hill: {
@@ -18003,29 +18021,28 @@ function generateTerrainArray() {
   const terrainArray = [];
 
   function pushTerrain(terrain, key) {
-    _.times(terrain.total, () => {
+    __WEBPACK_IMPORTED_MODULE_0_lodash___default.a.times(terrain.total, () => {
       terrainArray.push(key);
     });
   }
 
-  _.forEach(terrainConfig, pushTerrain);
+  __WEBPACK_IMPORTED_MODULE_0_lodash___default.a.forEach(terrainConfig, pushTerrain);
 
-  return _.shuffle(terrainArray);
+  return __WEBPACK_IMPORTED_MODULE_0_lodash___default.a.shuffle(terrainArray);
 }
 
 function terrains() {
   return generateTerrainArray();
 }
 
-module.exports = {
-  terrains,
-};
+/* harmony default export */ __webpack_exports__["a"] = (terrains);
 
 
 /***/ }),
 /* 15 */
-/***/ (function(module, exports) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 function numberTokens() {
   return [
     {
@@ -18103,15 +18120,14 @@ function numberTokens() {
   ];
 }
 
-module.exports = {
-  numberTokens,
-};
+/* harmony default export */ __webpack_exports__["a"] = (numberTokens);
 
 
 /***/ }),
 /* 16 */
-/***/ (function(module, exports) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 function tileGrid() {
   return [
     '1_0',
@@ -18136,18 +18152,21 @@ function tileGrid() {
   ];
 }
 
-module.exports = {
-  tileGrid,
-};
+/* harmony default export */ __webpack_exports__["a"] = (tileGrid);
 
 
 /***/ }),
 /* 17 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-const _ = __webpack_require__(0);
-const { player } = __webpack_require__(18);
-const { availableColors } = __webpack_require__(19);
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_lodash__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_lodash___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_lodash__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_player__ = __webpack_require__(18);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_availableColors__ = __webpack_require__(19);
+
+
+
 
 function setPlayerType(index) {
   if (index === 0) {
@@ -18158,30 +18177,29 @@ function setPlayerType(index) {
 
 function setPlayerColor(colors, settings, index) {
   if (index === 0) {
-    _.pull(colors, settings.color);
+    __WEBPACK_IMPORTED_MODULE_0_lodash___default.a.pull(colors, settings.color);
     return settings.color;
   }
   return colors.shift();
 }
 
 function generatePlayers(settings) {
-  const colors = _.shuffle(availableColors());
+  const colors = __WEBPACK_IMPORTED_MODULE_0_lodash___default.a.shuffle(Object(__WEBPACK_IMPORTED_MODULE_2__components_availableColors__["a" /* default */])());
 
-  return _.shuffle(_.times(settings.totalPlayers, index => (player({
+  return __WEBPACK_IMPORTED_MODULE_0_lodash___default.a.shuffle(__WEBPACK_IMPORTED_MODULE_0_lodash___default.a.times(settings.totalPlayers, index => (Object(__WEBPACK_IMPORTED_MODULE_1__components_player__["a" /* default */])({
     type: setPlayerType(index),
     color: setPlayerColor(colors, settings, index),
   }))));
 }
 
-module.exports = {
-  generatePlayers,
-};
+/* harmony default export */ __webpack_exports__["a"] = (generatePlayers);
 
 
 /***/ }),
 /* 18 */
-/***/ (function(module, exports) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 function player(payload) {
   return {
     settlements: [],
@@ -18196,15 +18214,14 @@ function player(payload) {
   };
 }
 
-module.exports = {
-  player,
-};
+/* harmony default export */ __webpack_exports__["a"] = (player);
 
 
 /***/ }),
 /* 19 */
-/***/ (function(module, exports) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 function availableColors() {
   return [
     'blue',
@@ -18214,40 +18231,43 @@ function availableColors() {
   ];
 }
 
-module.exports = {
-  availableColors,
-};
+/* harmony default export */ __webpack_exports__["a"] = (availableColors);
 
 
 /***/ }),
 /* 20 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-const { buildingCostCard } = __webpack_require__(21);
-const { largestArmy } = __webpack_require__(22);
-const { longestRoad } = __webpack_require__(23);
-const { probability } = __webpack_require__(24);
-const { resourceProduction } = __webpack_require__(25);
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__lookup_buildingCostCard__ = __webpack_require__(21);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__lookup_largestArmy__ = __webpack_require__(22);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__lookup_longestRoad__ = __webpack_require__(23);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__lookup_probability__ = __webpack_require__(24);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__lookup_resourceProduction__ = __webpack_require__(25);
+
+
+
+
+
 
 function generateRules() {
   return {
-    buildingCostCard,
-    largestArmy,
-    longestRoad,
-    probability,
-    resourceProduction,
+    buildingCostCard: __WEBPACK_IMPORTED_MODULE_0__lookup_buildingCostCard__["a" /* default */],
+    largestArmy: __WEBPACK_IMPORTED_MODULE_1__lookup_largestArmy__["a" /* default */],
+    longestRoad: __WEBPACK_IMPORTED_MODULE_2__lookup_longestRoad__["a" /* default */],
+    probability: __WEBPACK_IMPORTED_MODULE_3__lookup_probability__["a" /* default */],
+    resourceProduction: __WEBPACK_IMPORTED_MODULE_4__lookup_resourceProduction__["a" /* default */],
   };
 }
 
-module.exports = {
-  generateRules,
-};
+/* harmony default export */ __webpack_exports__["a"] = (generateRules);
 
 
 /***/ }),
 /* 21 */
-/***/ (function(module, exports) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 const buildingCostCard = {
   road: ['lumber', 'brick'],
   settlement: ['lumber', 'brick', 'grain', 'sheep'],
@@ -18255,43 +18275,40 @@ const buildingCostCard = {
   developmentCard: ['grain', 'sheep', 'ore'],
 };
 
-module.exports = {
-  buildingCostCard,
-};
+/* harmony default export */ __webpack_exports__["a"] = (buildingCostCard);
 
 
 /***/ }),
 /* 22 */
-/***/ (function(module, exports) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 const largestArmy = {
   minimumKnights: 3,
   victory: 2,
 };
 
-module.exports = {
-  largestArmy,
-};
+/* harmony default export */ __webpack_exports__["a"] = (largestArmy);
 
 
 /***/ }),
 /* 23 */
-/***/ (function(module, exports) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 const longestRoad = {
   minimumSegments: 5,
   victory: 2,
 };
 
-module.exports = {
-  longestRoad,
-};
+/* harmony default export */ __webpack_exports__["a"] = (longestRoad);
 
 
 /***/ }),
 /* 24 */
-/***/ (function(module, exports) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 const probability = {
   2: 1,
   3: 2,
@@ -18306,15 +18323,14 @@ const probability = {
   12: 1,
 };
 
-module.exports = {
-  probability,
-};
+/* harmony default export */ __webpack_exports__["a"] = (probability);
 
 
 /***/ }),
 /* 25 */
-/***/ (function(module, exports) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 const resourceProduction = {
   hill: 'brick',
   forest: 'lumber',
@@ -18323,25 +18339,29 @@ const resourceProduction = {
   pasture: 'wood',
 };
 
-module.exports = {
-  resourceProduction,
-};
+/* harmony default export */ __webpack_exports__["a"] = (resourceProduction);
 
 
 /***/ }),
 /* 26 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-const _ = __webpack_require__(0);
-const { generateGrid } = __webpack_require__(27);
-const { generateCenterPoints } = __webpack_require__(28);
-const { generateHexPoints } = __webpack_require__(29);
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_lodash__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_lodash___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_lodash__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__generateGrid__ = __webpack_require__(27);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__generateCenterPoints__ = __webpack_require__(28);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__generateHexPoints__ = __webpack_require__(29);
+
+
+
+
 
 function generateNewLayout(gameboard) {
   return new Promise((resolve) => {
-    const grid = generateGrid(5, 5);
-    const centerPoints = generateCenterPoints(grid);
-    const hexPoints = generateHexPoints(centerPoints);
+    const grid = Object(__WEBPACK_IMPORTED_MODULE_1__generateGrid__["a" /* default */])(5, 5);
+    const centerPoints = Object(__WEBPACK_IMPORTED_MODULE_2__generateCenterPoints__["a" /* default */])(grid);
+    const hexPoints = Object(__WEBPACK_IMPORTED_MODULE_3__generateHexPoints__["a" /* default */])(centerPoints);
 
     const layout = {};
     layout.hexagons = grid.map((coordinate, index) => (
@@ -18351,26 +18371,27 @@ function generateNewLayout(gameboard) {
         points: hexPoints[index],
       }));
 
-    resolve(_.merge(gameboard, { layout }));
+    resolve(__WEBPACK_IMPORTED_MODULE_0_lodash___default.a.merge(gameboard, { layout }));
   });
 }
 
-module.exports = {
-  generateNewLayout,
-};
+/* harmony default export */ __webpack_exports__["a"] = (generateNewLayout);
 
 
 /***/ }),
 /* 27 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-const _ = __webpack_require__(0);
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_lodash__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_lodash___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_lodash__);
+
 
 const excludedCoordinates = ['0_0', '0_4', '4_0', '4_1', '4_3', '4_4'];
 
 function generateGrid(columns, rows) {
-  return _.flatten(_.times(columns, column => (
-    _.times(rows, row => (
+  return __WEBPACK_IMPORTED_MODULE_0_lodash___default.a.flatten(__WEBPACK_IMPORTED_MODULE_0_lodash___default.a.times(columns, column => (
+    __WEBPACK_IMPORTED_MODULE_0_lodash___default.a.times(rows, row => (
       [column, row]
     )).filter(val => (
       excludedCoordinates.indexOf(val.join('_')) === -1
@@ -18378,16 +18399,16 @@ function generateGrid(columns, rows) {
   )));
 }
 
-module.exports = {
-  generateGrid,
-};
+/* harmony default export */ __webpack_exports__["a"] = (generateGrid);
 
 
 /***/ }),
 /* 28 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-const { roundToNearest } = __webpack_require__(3);
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__helpers_roundToNearest__ = __webpack_require__(3);
+
 
 function generateCenterPoints(grid) {
   const radius = 30;
@@ -18403,29 +18424,29 @@ function generateCenterPoints(grid) {
     if (row % 2 !== 0) {
       x += offset;
     }
-    return [roundToNearest(x, 100), roundToNearest(y, 100)];
+    return [Object(__WEBPACK_IMPORTED_MODULE_0__helpers_roundToNearest__["a" /* default */])(x, 100), Object(__WEBPACK_IMPORTED_MODULE_0__helpers_roundToNearest__["a" /* default */])(y, 100)];
   });
 }
 
-module.exports = {
-  generateCenterPoints,
-};
+/* harmony default export */ __webpack_exports__["a"] = (generateCenterPoints);
 
 
 /***/ }),
 /* 29 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-const { roundToNearest } = __webpack_require__(3);
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__helpers_roundToNearest__ = __webpack_require__(3);
+
 
 function pointX(x, theta, radius) {
   const point = x + (radius * Math.sin(theta));
-  return roundToNearest(point, 100);
+  return Object(__WEBPACK_IMPORTED_MODULE_0__helpers_roundToNearest__["a" /* default */])(point, 100);
 }
 
 function pointY(y, theta, radius) {
   const point = y + (radius * Math.cos(theta));
-  return roundToNearest(point, 100);
+  return Object(__WEBPACK_IMPORTED_MODULE_0__helpers_roundToNearest__["a" /* default */])(point, 100);
 }
 
 function generateHexPoints(centerPoints) {
@@ -18443,40 +18464,43 @@ function generateHexPoints(centerPoints) {
   });
 }
 
-module.exports = {
-  generateHexPoints,
-};
+/* harmony default export */ __webpack_exports__["a"] = (generateHexPoints);
 
 
 /***/ }),
 /* 30 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-const _ = __webpack_require__(0);
-const { buildHexagons } = __webpack_require__(31);
-const { buildSegments } = __webpack_require__(32);
-const { buildNodes } = __webpack_require__(33);
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_lodash__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_lodash___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_lodash__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__svg_buildHexagons__ = __webpack_require__(31);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__svg_buildSegments__ = __webpack_require__(32);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__svg_buildNodes__ = __webpack_require__(33);
+
+
+
+
 
 function generateSVG(gameboard) {
   return new Promise((resolve) => {
     const svg = {};
-    svg.hexagons = buildHexagons(gameboard);
-    svg.segments = buildSegments(gameboard);
-    svg.nodes = buildNodes(gameboard);
+    svg.hexagons = Object(__WEBPACK_IMPORTED_MODULE_1__svg_buildHexagons__["a" /* default */])(gameboard);
+    svg.segments = Object(__WEBPACK_IMPORTED_MODULE_2__svg_buildSegments__["a" /* default */])(gameboard);
+    svg.nodes = Object(__WEBPACK_IMPORTED_MODULE_3__svg_buildNodes__["a" /* default */])(gameboard);
 
-    resolve(_.merge(gameboard, { svg }));
+    resolve(__WEBPACK_IMPORTED_MODULE_0_lodash___default.a.merge(gameboard, { svg }));
   });
 }
 
-module.exports = {
-  generateSVG,
-};
+/* harmony default export */ __webpack_exports__["a"] = (generateSVG);
 
 
 /***/ }),
 /* 31 */
-/***/ (function(module, exports) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 function buildHexagons(gameboard) {
   return gameboard.layout.hexagons.map((hexagon) => {
     const group = document.createElementNS('http://www.w3.org/2000/svg', 'g');
@@ -18496,19 +18520,20 @@ function buildHexagons(gameboard) {
   });
 }
 
-module.exports = {
-  buildHexagons,
-};
+/* harmony default export */ __webpack_exports__["a"] = (buildHexagons);
 
 
 /***/ }),
 /* 32 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-const _ = __webpack_require__(0);
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_lodash__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_lodash___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_lodash__);
+
 
 function buildSegmentsArray(gameboard) {
-  const segmentArray = _.flattenDepth(gameboard.layout.hexagons.map((hexagon) => {
+  const segmentArray = __WEBPACK_IMPORTED_MODULE_0_lodash___default.a.flattenDepth(gameboard.layout.hexagons.map((hexagon) => {
     const [p1, p2, p3, p4, p5, p6] = hexagon.points;
     return [
       [p1, p2],
@@ -18520,9 +18545,9 @@ function buildSegmentsArray(gameboard) {
     ];
   }), 1);
 
-  return _.uniqBy(segmentArray, (segment) => {
-    const segmentCopy = _.clone(segment);
-    return _.flatten(segmentCopy).sort().join(',');
+  return __WEBPACK_IMPORTED_MODULE_0_lodash___default.a.uniqBy(segmentArray, (segment) => {
+    const segmentCopy = __WEBPACK_IMPORTED_MODULE_0_lodash___default.a.clone(segment);
+    return __WEBPACK_IMPORTED_MODULE_0_lodash___default.a.flatten(segmentCopy).sort().join(',');
   });
 }
 
@@ -18539,20 +18564,21 @@ function buildSegments(gameboard) {
   });
 }
 
-module.exports = {
-  buildSegments,
-};
+/* harmony default export */ __webpack_exports__["a"] = (buildSegments);
 
 
 /***/ }),
 /* 33 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-const _ = __webpack_require__(0);
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_lodash__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_lodash___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_lodash__);
+
 
 function buildPointsArray(gameboard) {
-  return _.uniqWith(_.flattenDepth(gameboard.layout.hexagons
-    .map(hexagon => (hexagon.points)), 1), _.isEqual);
+  return __WEBPACK_IMPORTED_MODULE_0_lodash___default.a.uniqWith(__WEBPACK_IMPORTED_MODULE_0_lodash___default.a.flattenDepth(gameboard.layout.hexagons
+    .map(hexagon => (hexagon.points)), 1), __WEBPACK_IMPORTED_MODULE_0_lodash___default.a.isEqual);
 }
 
 function buildNodes(gameboard) {
@@ -18567,32 +18593,33 @@ function buildNodes(gameboard) {
   });
 }
 
-module.exports = {
-  buildNodes,
-};
+/* harmony default export */ __webpack_exports__["a"] = (buildNodes);
 
 
 /***/ }),
 /* 34 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-const _ = __webpack_require__(0);
-const { createStore } = __webpack_require__(4);
-const reducers = __webpack_require__(49).default;
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_lodash__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_lodash___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_lodash__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_redux__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__reducers__ = __webpack_require__(49);
+
+
+
 
 function initStore(gameboard) {
   return new Promise((resolve) => {
-    const store = createStore(reducers, {
+    const store = Object(__WEBPACK_IMPORTED_MODULE_1_redux__["b" /* createStore */])(__WEBPACK_IMPORTED_MODULE_2__reducers__["a" /* default */], {
       players: gameboard.players,
     });
 
-    resolve(_.merge(gameboard, { store }));
+    resolve(__WEBPACK_IMPORTED_MODULE_0_lodash___default.a.merge(gameboard, { store }));
   });
 }
 
-module.exports = {
-  initStore,
-};
+/* harmony default export */ __webpack_exports__["a"] = (initStore);
 
 
 /***/ }),
@@ -19035,7 +19062,7 @@ function combineReducers(reducers) {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (immutable) */ __webpack_exports__["a"] = bindActionCreators;
+/* unused harmony export default */
 function bindActionCreator(actionCreator, dispatch) {
   return function () {
     return dispatch(actionCreator.apply(undefined, arguments));
@@ -19089,7 +19116,7 @@ function bindActionCreators(actionCreators, dispatch) {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (immutable) */ __webpack_exports__["a"] = applyMiddleware;
+/* unused harmony export default */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__compose__ = __webpack_require__(10);
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
@@ -19145,16 +19172,15 @@ function applyMiddleware() {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_redux__ = __webpack_require__(4);
 
 
 const playerReducer = (state = [], action) => {
   if (action.type === 'ADD_SETTLEMENT') {
-    // console.log('BEFORE STATE:', state);
-    // console.log('add a settlement!');
-    // console.log('playerIndex:', action.index);
-    // console.log('coordinates:', action.coordinate);
+    console.log('BEFORE STATE:', state);
+    console.log('add a settlement!');
+    console.log('playerIndex:', action.index);
+    console.log('coordinates:', action.coordinate);
 
     return state.map((player, index) => {
       if (index === action.index) {
@@ -19168,32 +19194,35 @@ const playerReducer = (state = [], action) => {
   return state;
 };
 
-const reducers = Object(__WEBPACK_IMPORTED_MODULE_0_redux__["combineReducers"])({
+const reducers = Object(__WEBPACK_IMPORTED_MODULE_0_redux__["a" /* combineReducers */])({
   players: playerReducer,
 });
 
-/* harmony default export */ __webpack_exports__["default"] = (reducers);
+/* harmony default export */ __webpack_exports__["a"] = (reducers);
 
 
 /***/ }),
 /* 50 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-const _ = __webpack_require__(0);
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_lodash__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_lodash___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_lodash__);
+
 
 function appendSVG(gameboard) {
   return new Promise((resolve) => {
     const catan = document.getElementById('catan');
 
-    _.each(gameboard.svg.hexagons, (group) => {
+    __WEBPACK_IMPORTED_MODULE_0_lodash___default.a.each(gameboard.svg.hexagons, (group) => {
       catan.appendChild(group);
     });
 
-    _.each(gameboard.svg.segments, (segment) => {
+    __WEBPACK_IMPORTED_MODULE_0_lodash___default.a.each(gameboard.svg.segments, (segment) => {
       catan.appendChild(segment);
     });
 
-    _.each(gameboard.svg.nodes, (node) => {
+    __WEBPACK_IMPORTED_MODULE_0_lodash___default.a.each(gameboard.svg.nodes, (node) => {
       catan.appendChild(node);
     });
 
@@ -19201,9 +19230,7 @@ function appendSVG(gameboard) {
   });
 }
 
-module.exports = {
-  appendSVG,
-};
+/* harmony default export */ __webpack_exports__["a"] = (appendSVG);
 
 
 /***/ })

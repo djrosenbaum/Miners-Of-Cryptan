@@ -43,9 +43,7 @@ const harbors = [
     type: ['wildcard'],
     resource: ['*'],
     rate: 3,
-  }
+  },
 ];
 
-module.exports = {
-  harbors,
-};
+export default harbors;

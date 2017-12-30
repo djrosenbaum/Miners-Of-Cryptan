@@ -1,8 +1,8 @@
-const { buildingCostCard } = require('../lookup/buildingCostCard.js');
-const { largestArmy } = require('../lookup/largestArmy.js');
-const { longestRoad } = require('../lookup/longestRoad.js');
-const { probability } = require('../lookup/probability.js');
-const { resourceProduction } = require('../lookup/resourceProduction.js');
+import buildingCostCard from '../lookup/buildingCostCard';
+import largestArmy from '../lookup/largestArmy';
+import longestRoad from '../lookup/longestRoad';
+import probability from '../lookup/probability';
+import resourceProduction from '../lookup/resourceProduction';
 
 function generateRules() {
   return {
@@ -14,6 +14,4 @@ function generateRules() {
   };
 }
 
-module.exports = {
-  generateRules,
-};
+export default generateRules;

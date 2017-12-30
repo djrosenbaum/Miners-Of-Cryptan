@@ -3,6 +3,4 @@ const longestRoad = {
   victory: 2,
 };
 
-module.exports = {
-  longestRoad,
-};
+export default longestRoad;

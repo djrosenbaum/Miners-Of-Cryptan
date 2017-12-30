@@ -12,6 +12,4 @@ const probability = {
   12: 1,
 };
 
-module.exports = {
-  probability,
-};
+export default probability;

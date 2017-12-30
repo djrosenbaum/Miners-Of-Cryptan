@@ -17,6 +17,4 @@ function buildHexagons(gameboard) {
   });
 }
 
-module.exports = {
-  buildHexagons,
-};
+export default buildHexagons;

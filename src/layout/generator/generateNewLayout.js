@@ -1,7 +1,7 @@
-const _ = require('lodash');
-const { generateGrid } = require('./generateGrid.js');
-const { generateCenterPoints } = require('./generateCenterPoints.js');
-const { generateHexPoints } = require('./generateHexPoints.js');
+import _ from 'lodash';
+import generateGrid from './generateGrid';
+import generateCenterPoints from './generateCenterPoints';
+import generateHexPoints from './generateHexPoints';
 
 function generateNewLayout(gameboard) {
   return new Promise((resolve) => {
@@ -21,6 +21,4 @@ function generateNewLayout(gameboard) {
   });
 }
 
-module.exports = {
-  generateNewLayout,
-};
+export default generateNewLayout;

@@ -22,6 +22,4 @@ function tileGrid() {
   ];
 }
 
-module.exports = {
-  tileGrid,
-};
+export default tileGrid;

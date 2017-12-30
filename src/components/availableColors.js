@@ -7,6 +7,4 @@ function availableColors() {
   ];
 }
 
-module.exports = {
-  availableColors,
-};
+export default availableColors;

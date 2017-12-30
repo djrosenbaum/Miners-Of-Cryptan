@@ -1,7 +1,7 @@
-const _ = require('lodash');
-const { buildHexagons } = require('../svg/buildHexagons.js');
-const { buildSegments } = require('../svg/buildSegments.js');
-const { buildNodes } = require('../svg/buildNodes.js');
+import _ from 'lodash';
+import buildHexagons from '../svg/buildHexagons';
+import buildSegments from '../svg/buildSegments';
+import buildNodes from '../svg/buildNodes';
 
 function generateSVG(gameboard) {
   return new Promise((resolve) => {
@@ -14,6 +14,4 @@ function generateSVG(gameboard) {
   });
 }
 
-module.exports = {
-  generateSVG,
-};
+export default generateSVG;

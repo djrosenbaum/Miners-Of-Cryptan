@@ -12,6 +12,4 @@ function player(payload) {
   };
 }
 
-module.exports = {
-  player,
-};
+export default player;

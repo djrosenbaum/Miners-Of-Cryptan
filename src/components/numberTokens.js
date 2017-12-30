@@ -75,6 +75,4 @@ function numberTokens() {
   ];
 }
 
-module.exports = {
-  numberTokens,
-};
+export default numberTokens;

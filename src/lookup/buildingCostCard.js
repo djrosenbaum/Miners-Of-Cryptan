@@ -5,6 +5,4 @@ const buildingCostCard = {
   developmentCard: ['grain', 'sheep', 'ore'],
 };
 
-module.exports = {
-  buildingCostCard,
-};
+export default buildingCostCard;

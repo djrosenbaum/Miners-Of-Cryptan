@@ -1,4 +1,4 @@
-const _ = require('lodash');
+import _ from 'lodash';
 
 const terrainConfig = {
   hill: {
@@ -39,6 +39,4 @@ function terrains() {
   return generateTerrainArray();
 }
 
-module.exports = {
-  terrains,
-};
+export default terrains;

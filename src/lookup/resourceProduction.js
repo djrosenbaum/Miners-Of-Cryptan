@@ -6,6 +6,4 @@ const resourceProduction = {
   pasture: 'wood',
 };
 
-module.exports = {
-  resourceProduction,
-};
+export default resourceProduction;

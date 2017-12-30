@@ -1,6 +1,6 @@
-const { generateGameTiles } = require('./generateGameTiles.js');
-const { generatePlayers } = require('./generatePlayers.js');
-const { generateRules } = require('./generateRules.js');
+import generateGameTiles from './generateGameTiles';
+import generatePlayers from './generatePlayers';
+import generateRules from './generateRules';
 
 function generateNewGame(settings) {
   return new Promise((resolve) => {
@@ -15,6 +15,4 @@ function generateNewGame(settings) {
   });
 }
 
-module.exports = {
-  generateNewGame,
-};
+export default generateNewGame;

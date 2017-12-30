@@ -1,9 +1,8 @@
-// const _ = require('lodash');
-const { generateNewGame } = require('./generators/generateNewGame.js');
-const { generateNewLayout } = require('./layout/generator/generateNewLayout.js');
-const { generateSVG } = require('./layout/generator/generateSVG.js');
-const { initStore } = require('./redux/store/initStore.js');
-const { appendSVG } = require('./layout/svg/appendSVG.js');
+import generateNewGame from './generators/generateNewGame';
+import generateNewLayout from './layout/generator/generateNewLayout';
+import generateSVG from './layout/generator/generateSVG';
+import initStore from './redux/store/initStore';
+import appendSVG from './layout/svg/appendSVG';
 
 const settings = {
   players: {
@@ -36,3 +35,9 @@ function startNewGame() {
 document.addEventListener('DOMContentLoaded', () => {
   startNewGame();
 });
+
+// import generateNewGame from './generators/generateNewGame';
+// import generateNewLayout from './layout/generator/generateNewLayout';
+// import generateSVG from './layout/generator/generateSVG';
+// import initStore from './redux/store/initStore';
+// import appendSVG from './layout/svg/appendSVG';

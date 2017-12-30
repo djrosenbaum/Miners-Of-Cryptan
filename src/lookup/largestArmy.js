@@ -3,6 +3,4 @@ const largestArmy = {
   victory: 2,
 };
 
-module.exports = {
-  largestArmy,
-};
+export default largestArmy;

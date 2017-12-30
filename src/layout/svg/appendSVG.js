@@ -1,4 +1,4 @@
-const _ = require('lodash');
+import _ from 'lodash';
 
 function appendSVG(gameboard) {
   return new Promise((resolve) => {
@@ -20,6 +20,4 @@ function appendSVG(gameboard) {
   });
 }
 
-module.exports = {
-  appendSVG,
-};
+export default appendSVG;

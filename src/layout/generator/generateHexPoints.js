@@ -1,4 +1,4 @@
-const { roundToNearest } = require('../../helpers/roundToNearest.js');
+import roundToNearest from '../../helpers/roundToNearest';
 
 function pointX(x, theta, radius) {
   const point = x + (radius * Math.sin(theta));
@@ -25,6 +25,4 @@ function generateHexPoints(centerPoints) {
   });
 }
 
-module.exports = {
-  generateHexPoints,
-};
+export default generateHexPoints;

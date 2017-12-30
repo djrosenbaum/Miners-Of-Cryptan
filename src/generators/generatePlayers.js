@@ -1,6 +1,6 @@
-const _ = require('lodash');
-const { player } = require('../components/player.js');
-const { availableColors } = require('../components/availableColors.js');
+import _ from 'lodash';
+import player from '../components/player';
+import availableColors from '../components/availableColors';
 
 function setPlayerType(index) {
   if (index === 0) {
@@ -26,6 +26,4 @@ function generatePlayers(settings) {
   }))));
 }
 
-module.exports = {
-  generatePlayers,
-};
+export default generatePlayers;

@@ -1,4 +1,4 @@
-const { roundToNearest } = require('../../helpers/roundToNearest.js');
+import roundToNearest from '../../helpers/roundToNearest';
 
 function generateCenterPoints(grid) {
   const radius = 30;
@@ -18,6 +18,4 @@ function generateCenterPoints(grid) {
   });
 }
 
-module.exports = {
-  generateCenterPoints,
-};
+export default generateCenterPoints;

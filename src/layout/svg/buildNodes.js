@@ -1,4 +1,4 @@
-const _ = require('lodash');
+import _ from 'lodash';
 
 function buildPointsArray(gameboard) {
   return _.uniqWith(_.flattenDepth(gameboard.layout.hexagons
@@ -17,6 +17,4 @@ function buildNodes(gameboard) {
   });
 }
 
-module.exports = {
-  buildNodes,
-};
+export default buildNodes;

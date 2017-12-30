@@ -1,4 +1,4 @@
-const _ = require('lodash');
+import _ from 'lodash';
 
 function buildSegmentsArray(gameboard) {
   const segmentArray = _.flattenDepth(gameboard.layout.hexagons.map((hexagon) => {
@@ -32,6 +32,4 @@ function buildSegments(gameboard) {
   });
 }
 
-module.exports = {
-  buildSegments,
-};
+export default buildSegments;

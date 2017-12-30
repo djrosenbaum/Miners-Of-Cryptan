@@ -1,6 +1,6 @@
-const _ = require('lodash');
-const { createStore } = require('redux');
-const reducers = require('./reducers').default;
+import _ from 'lodash';
+import { createStore } from 'redux';
+import reducers from './reducers';
 
 function initStore(gameboard) {
   return new Promise((resolve) => {
@@ -12,6 +12,4 @@ function initStore(gameboard) {
   });
 }
 
-module.exports = {
-  initStore,
-};
+export default initStore;

@@ -1,4 +1,4 @@
-const _ = require('lodash');
+import _ from 'lodash';
 
 const excludedCoordinates = ['0_0', '0_4', '4_0', '4_1', '4_3', '4_4'];
 
@@ -12,6 +12,4 @@ function generateGrid(columns, rows) {
   )));
 }
 
-module.exports = {
-  generateGrid,
-};
+export default generateGrid;

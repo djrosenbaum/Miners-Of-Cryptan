@@ -1,8 +1,7 @@
-const _ = require('lodash');
-const { terrains } = require('../components/terrains.js');
-const { numberTokens } = require('../components/numberTokens.js');
-// const { randomNumber } = require('../helpers/randomNumber.js');
-const { tileGrid } = require('../layout/tileGrid.js');
+import _ from 'lodash';
+import terrains from '../components/terrains';
+import numberTokens from '../components/numberTokens';
+import tileGrid from '../layout/tileGrid';
 
 let state = {};
 
@@ -29,6 +28,4 @@ function generateGameTiles() {
   return _.forEach(state.numberTokens, buildGameTile);
 }
 
-module.exports = {
-  generateGameTiles,
-};
+export default generateGameTiles;
