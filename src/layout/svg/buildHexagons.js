@@ -1,11 +1,12 @@
 import _ from 'lodash';
+import game from '../../game/game';
 import graphicLocation from '../../lookup/graphicLocation';
 
 const ns = 'http://www.w3.org/2000/svg';
 
-function buildHexagons(gameboard) {
-  return gameboard.layout.hexagons.map((hexagon) => {
-    const gameTile = _.find(gameboard.gameTiles, { grid: hexagon.coordinate.join('_') });
+function buildHexagons() {
+  return game.layout.hexagons.map((hexagon) => {
+    const gameTile = _.find(game.gameTiles, { grid: hexagon.coordinate.join('_') });
     const group = document.createElementNS(ns, 'g');
 
     const polygon = document.createElementNS(ns, 'polygon');
@@ -32,7 +33,7 @@ function buildHexagons(gameboard) {
       group.appendChild(text1);
     }
 
-    const probability = gameboard.rules.probability[tileNumber];
+    const probability = game.rules.probability[tileNumber];
     if (probability) {
       const text2 = document.createElementNS(ns, 'text');
       text2.setAttribute('x', hexagon.centerPoint[0]);
@@ -40,7 +41,7 @@ function buildHexagons(gameboard) {
       text2.setAttribute('dy', 20);
       text2.setAttribute('text-anchor', 'middle');
       text2.classList.add('tileProbability');
-      text2.textContent = Array(gameboard.rules.probability[tileNumber]).fill('\u2022').join('');
+      text2.textContent = Array(game.rules.probability[tileNumber]).fill('\u2022').join('');
       group.appendChild(text2);
     }
 

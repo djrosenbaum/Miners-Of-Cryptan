@@ -1,9 +1,10 @@
 import _ from 'lodash';
+import game from '../../game/game';
 import generateGrid from './generateGrid';
 import generateCenterPoints from './generateCenterPoints';
 import generateHexPoints from './generateHexPoints';
 
-function generateNewLayout(gameboard) {
+function generateNewLayout() {
   return new Promise((resolve) => {
     const grid = generateGrid(5, 5);
     const centerPoints = generateCenterPoints(grid);
@@ -17,7 +18,9 @@ function generateNewLayout(gameboard) {
         points: hexPoints[index],
       }));
 
-    resolve(_.merge(gameboard, { layout }));
+    _.merge(game, { layout });
+
+    resolve();
   });
 }
 

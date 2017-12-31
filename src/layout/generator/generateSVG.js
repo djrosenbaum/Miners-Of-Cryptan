@@ -1,16 +1,19 @@
 import _ from 'lodash';
+import game from '../../game/game';
 import buildHexagons from '../svg/buildHexagons';
 import buildSegments from '../svg/buildSegments';
 import buildNodes from '../svg/buildNodes';
 
-function generateSVG(gameboard) {
+function generateSVG() {
   return new Promise((resolve) => {
     const svg = {};
-    svg.hexagons = buildHexagons(gameboard);
-    svg.segments = buildSegments(gameboard);
-    svg.nodes = buildNodes(gameboard);
+    svg.hexagons = buildHexagons();
+    svg.segments = buildSegments();
+    svg.nodes = buildNodes();
 
-    resolve(_.merge(gameboard, { svg }));
+    _.merge(game, { svg });
+
+    resolve(game);
   });
 }
 

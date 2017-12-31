@@ -1,14 +1,17 @@
 import _ from 'lodash';
 import { createStore } from 'redux';
+import game from '../../game/game';
 import reducers from '../reducers/reducers';
 
-function initStore(gameboard) {
+function initStore() {
   return new Promise((resolve) => {
     const store = createStore(reducers, {
-      players: gameboard.players,
+      players: game.players,
     });
 
-    resolve(_.merge(gameboard, { store }));
+    _.merge(game, { store });
+
+    resolve();
   });
 }
 

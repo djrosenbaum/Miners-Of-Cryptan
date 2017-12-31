@@ -1,22 +1,23 @@
 import _ from 'lodash';
+import game from '../../game/game';
 
-function appendSVG(gameboard) {
+function appendSVG() {
   return new Promise((resolve) => {
     const catan = document.getElementById('catan');
 
-    _.each(gameboard.svg.hexagons, (group) => {
+    _.each(game.svg.hexagons, (group) => {
       catan.appendChild(group);
     });
 
-    _.each(gameboard.svg.segments, (segment) => {
+    _.each(game.svg.segments, (segment) => {
       catan.appendChild(segment);
     });
 
-    _.each(gameboard.svg.nodes, (node) => {
+    _.each(game.svg.nodes, (node) => {
       catan.appendChild(node);
     });
 
-    resolve(gameboard);
+    resolve(game);
   });
 }
 

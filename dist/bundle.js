@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 11);
+/******/ 	return __webpack_require__(__webpack_require__.s = 12);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -17153,10 +17153,24 @@
   }
 }.call(this));
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1), __webpack_require__(2)(module)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2), __webpack_require__(3)(module)))
 
 /***/ }),
 /* 1 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var game = {};
+
+exports.default = game;
+
+/***/ }),
+/* 2 */
 /***/ (function(module, exports) {
 
 var g;
@@ -17183,7 +17197,7 @@ module.exports = g;
 
 
 /***/ }),
-/* 2 */
+/* 3 */
 /***/ (function(module, exports) {
 
 module.exports = function(module) {
@@ -17211,7 +17225,7 @@ module.exports = function(module) {
 
 
 /***/ }),
-/* 3 */
+/* 4 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -17227,17 +17241,17 @@ function roundToNearest(num, toNearest) {
 exports.default = roundToNearest;
 
 /***/ }),
-/* 4 */
+/* 5 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* WEBPACK VAR INJECTION */(function(process) {/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__createStore__ = __webpack_require__(6);
+/* WEBPACK VAR INJECTION */(function(process) {/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__createStore__ = __webpack_require__(7);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__combineReducers__ = __webpack_require__(48);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__bindActionCreators__ = __webpack_require__(49);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__applyMiddleware__ = __webpack_require__(50);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__compose__ = __webpack_require__(10);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__utils_warning__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__compose__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__utils_warning__ = __webpack_require__(10);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "createStore", function() { return __WEBPACK_IMPORTED_MODULE_0__createStore__["b"]; });
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "combineReducers", function() { return __WEBPACK_IMPORTED_MODULE_1__combineReducers__["a"]; });
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "bindActionCreators", function() { return __WEBPACK_IMPORTED_MODULE_2__bindActionCreators__["a"]; });
@@ -17261,10 +17275,10 @@ if (process.env.NODE_ENV !== 'production' && typeof isCrushed.name === 'string' 
 }
 
 
-/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(5)))
+/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(6)))
 
 /***/ }),
-/* 5 */
+/* 6 */
 /***/ (function(module, exports) {
 
 // shim for using process in browser
@@ -17454,13 +17468,13 @@ process.umask = function() { return 0; };
 
 
 /***/ }),
-/* 6 */
+/* 7 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ActionTypes; });
 /* harmony export (immutable) */ __webpack_exports__["b"] = createStore;
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_lodash_es_isPlainObject__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_lodash_es_isPlainObject__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_symbol_observable__ = __webpack_require__(45);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_symbol_observable___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_symbol_observable__);
 
@@ -17713,7 +17727,7 @@ var ActionTypes = {
 }
 
 /***/ }),
-/* 7 */
+/* 8 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -17785,7 +17799,7 @@ function isPlainObject(value) {
 
 
 /***/ }),
-/* 8 */
+/* 9 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -17799,7 +17813,7 @@ var Symbol = __WEBPACK_IMPORTED_MODULE_0__root_js__["a" /* default */].Symbol;
 
 
 /***/ }),
-/* 9 */
+/* 10 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -17827,7 +17841,7 @@ function warning(message) {
 }
 
 /***/ }),
-/* 10 */
+/* 11 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -17866,13 +17880,13 @@ function compose() {
 }
 
 /***/ }),
-/* 11 */
+/* 12 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _game = __webpack_require__(12);
+var _game = __webpack_require__(1);
 
 var _game2 = _interopRequireDefault(_game);
 
@@ -17906,36 +17920,21 @@ var settings = {
 };
 
 function startNewGame() {
-  (0, _generateNewGame2.default)(settings).then(_generateNewLayout2.default).then(_initStore2.default).then(_generateSVG2.default).then(_appendSVG2.default).then(function (gameboard) {
+  (0, _generateNewGame2.default)(settings).then(_generateNewLayout2.default).then(_initStore2.default).then(_generateSVG2.default).then(_appendSVG2.default).then(function () {
     console.log('success!');
-    console.log(gameboard);
+    console.log(_game2.default);
 
-    // dispatch settlement placement
-    // game.store.dispatch({
-    //   type: 'ADD_SETTLEMENT',
-    //   index: 0,
-    //   coordinate: [169.9, 55],
-    // });
+    _game2.default.store.dispatch({
+      type: 'ADD_SETTLEMENT',
+      index: 0,
+      coordinate: [169.9, 55]
+    });
   });
 }
 
 document.addEventListener('DOMContentLoaded', function () {
   startNewGame();
 });
-
-/***/ }),
-/* 12 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-var game = {};
-
-exports.default = game;
 
 /***/ }),
 /* 13 */
@@ -17947,6 +17946,10 @@ exports.default = game;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+
+var _game = __webpack_require__(1);
+
+var _game2 = _interopRequireDefault(_game);
 
 var _generateGameTiles = __webpack_require__(14);
 
@@ -17964,14 +17967,12 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 function generateNewGame(settings) {
   return new Promise(function (resolve) {
-    var gameBoard = {
-      settings: settings,
-      gameTiles: (0, _generateGameTiles2.default)(),
-      players: (0, _generatePlayers2.default)(settings.players),
-      rules: (0, _generateRules2.default)()
-    };
+    _game2.default.settings = settings;
+    _game2.default.gameTiles = (0, _generateGameTiles2.default)();
+    _game2.default.players = (0, _generatePlayers2.default)(settings.players);
+    _game2.default.rules = (0, _generateRules2.default)();
 
-    resolve(gameBoard);
+    resolve(_game2.default);
   });
 }
 
@@ -18431,6 +18432,10 @@ var _lodash = __webpack_require__(0);
 
 var _lodash2 = _interopRequireDefault(_lodash);
 
+var _game = __webpack_require__(1);
+
+var _game2 = _interopRequireDefault(_game);
+
 var _generateGrid = __webpack_require__(28);
 
 var _generateGrid2 = _interopRequireDefault(_generateGrid);
@@ -18445,7 +18450,7 @@ var _generateHexPoints2 = _interopRequireDefault(_generateHexPoints);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function generateNewLayout(gameboard) {
+function generateNewLayout() {
   return new Promise(function (resolve) {
     var grid = (0, _generateGrid2.default)(5, 5);
     var centerPoints = (0, _generateCenterPoints2.default)(grid);
@@ -18460,7 +18465,9 @@ function generateNewLayout(gameboard) {
       };
     });
 
-    resolve(_lodash2.default.merge(gameboard, { layout: layout }));
+    _lodash2.default.merge(_game2.default, { layout: layout });
+
+    resolve();
   });
 }
 
@@ -18510,7 +18517,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }();
 
-var _roundToNearest = __webpack_require__(3);
+var _roundToNearest = __webpack_require__(4);
 
 var _roundToNearest2 = _interopRequireDefault(_roundToNearest);
 
@@ -18551,7 +18558,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }();
 
-var _roundToNearest = __webpack_require__(3);
+var _roundToNearest = __webpack_require__(4);
 
 var _roundToNearest2 = _interopRequireDefault(_roundToNearest);
 
@@ -18602,6 +18609,10 @@ var _lodash = __webpack_require__(0);
 
 var _lodash2 = _interopRequireDefault(_lodash);
 
+var _game = __webpack_require__(1);
+
+var _game2 = _interopRequireDefault(_game);
+
 var _buildHexagons = __webpack_require__(32);
 
 var _buildHexagons2 = _interopRequireDefault(_buildHexagons);
@@ -18616,14 +18627,16 @@ var _buildNodes2 = _interopRequireDefault(_buildNodes);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function generateSVG(gameboard) {
+function generateSVG() {
   return new Promise(function (resolve) {
     var svg = {};
-    svg.hexagons = (0, _buildHexagons2.default)(gameboard);
-    svg.segments = (0, _buildSegments2.default)(gameboard);
-    svg.nodes = (0, _buildNodes2.default)(gameboard);
+    svg.hexagons = (0, _buildHexagons2.default)();
+    svg.segments = (0, _buildSegments2.default)();
+    svg.nodes = (0, _buildNodes2.default)();
 
-    resolve(_lodash2.default.merge(gameboard, { svg: svg }));
+    _lodash2.default.merge(_game2.default, { svg: svg });
+
+    resolve(_game2.default);
   });
 }
 
@@ -18644,6 +18657,10 @@ var _lodash = __webpack_require__(0);
 
 var _lodash2 = _interopRequireDefault(_lodash);
 
+var _game = __webpack_require__(1);
+
+var _game2 = _interopRequireDefault(_game);
+
 var _graphicLocation = __webpack_require__(33);
 
 var _graphicLocation2 = _interopRequireDefault(_graphicLocation);
@@ -18652,9 +18669,9 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var ns = 'http://www.w3.org/2000/svg';
 
-function buildHexagons(gameboard) {
-  return gameboard.layout.hexagons.map(function (hexagon) {
-    var gameTile = _lodash2.default.find(gameboard.gameTiles, { grid: hexagon.coordinate.join('_') });
+function buildHexagons() {
+  return _game2.default.layout.hexagons.map(function (hexagon) {
+    var gameTile = _lodash2.default.find(_game2.default.gameTiles, { grid: hexagon.coordinate.join('_') });
     var group = document.createElementNS(ns, 'g');
 
     var polygon = document.createElementNS(ns, 'polygon');
@@ -18681,7 +18698,7 @@ function buildHexagons(gameboard) {
       group.appendChild(text1);
     }
 
-    var probability = gameboard.rules.probability[tileNumber];
+    var probability = _game2.default.rules.probability[tileNumber];
     if (probability) {
       var text2 = document.createElementNS(ns, 'text');
       text2.setAttribute('x', hexagon.centerPoint[0]);
@@ -18689,7 +18706,7 @@ function buildHexagons(gameboard) {
       text2.setAttribute('dy', 20);
       text2.setAttribute('text-anchor', 'middle');
       text2.classList.add('tileProbability');
-      text2.textContent = Array(gameboard.rules.probability[tileNumber]).fill('\u2022').join('');
+      text2.textContent = Array(_game2.default.rules.probability[tileNumber]).fill('\u2022').join('');
       group.appendChild(text2);
     }
 
@@ -18746,10 +18763,14 @@ var _lodash = __webpack_require__(0);
 
 var _lodash2 = _interopRequireDefault(_lodash);
 
+var _game = __webpack_require__(1);
+
+var _game2 = _interopRequireDefault(_game);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function buildSegmentsArray(gameboard) {
-  var segmentArray = _lodash2.default.flattenDepth(gameboard.layout.hexagons.map(function (hexagon) {
+function buildSegmentsArray() {
+  var segmentArray = _lodash2.default.flattenDepth(_game2.default.layout.hexagons.map(function (hexagon) {
     var _hexagon$points = _slicedToArray(hexagon.points, 6),
         p1 = _hexagon$points[0],
         p2 = _hexagon$points[1],
@@ -18767,8 +18788,8 @@ function buildSegmentsArray(gameboard) {
   });
 }
 
-function buildSegments(gameboard) {
-  return buildSegmentsArray(gameboard).map(function (segment) {
+function buildSegments() {
+  return buildSegmentsArray(_game2.default).map(function (segment) {
     var _segment$ = _slicedToArray(segment[0], 2),
         x1 = _segment$[0],
         y1 = _segment$[1];
@@ -18805,16 +18826,20 @@ var _lodash = __webpack_require__(0);
 
 var _lodash2 = _interopRequireDefault(_lodash);
 
+var _game = __webpack_require__(1);
+
+var _game2 = _interopRequireDefault(_game);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function buildPointsArray(gameboard) {
-  return _lodash2.default.uniqWith(_lodash2.default.flattenDepth(gameboard.layout.hexagons.map(function (hexagon) {
+function buildPointsArray() {
+  return _lodash2.default.uniqWith(_lodash2.default.flattenDepth(_game2.default.layout.hexagons.map(function (hexagon) {
     return hexagon.points;
   }), 1), _lodash2.default.isEqual);
 }
 
-function buildNodes(gameboard) {
-  return buildPointsArray(gameboard).map(function (point) {
+function buildNodes() {
+  return buildPointsArray(_game2.default).map(function (point) {
     var _point = _slicedToArray(point, 2),
         cx = _point[0],
         cy = _point[1];
@@ -18845,7 +18870,11 @@ var _lodash = __webpack_require__(0);
 
 var _lodash2 = _interopRequireDefault(_lodash);
 
-var _redux = __webpack_require__(4);
+var _redux = __webpack_require__(5);
+
+var _game = __webpack_require__(1);
+
+var _game2 = _interopRequireDefault(_game);
 
 var _reducers = __webpack_require__(51);
 
@@ -18853,13 +18882,15 @@ var _reducers2 = _interopRequireDefault(_reducers);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function initStore(gameboard) {
+function initStore() {
   return new Promise(function (resolve) {
     var store = (0, _redux.createStore)(_reducers2.default, {
-      players: gameboard.players
+      players: _game2.default.players
     });
 
-    resolve(_lodash2.default.merge(gameboard, { store: store }));
+    _lodash2.default.merge(_game2.default, { store: store });
+
+    resolve();
   });
 }
 
@@ -18870,7 +18901,7 @@ exports.default = initStore;
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Symbol_js__ = __webpack_require__(8);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Symbol_js__ = __webpack_require__(9);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__getRawTag_js__ = __webpack_require__(40);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__objectToString_js__ = __webpack_require__(41);
 
@@ -18930,14 +18961,14 @@ var freeGlobal = typeof global == 'object' && global && global.Object === Object
 
 /* harmony default export */ __webpack_exports__["a"] = (freeGlobal);
 
-/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(1)))
+/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(2)))
 
 /***/ }),
 /* 40 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Symbol_js__ = __webpack_require__(8);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Symbol_js__ = __webpack_require__(9);
 
 
 /** Used for built-in method references. */
@@ -19128,7 +19159,7 @@ if (typeof self !== 'undefined') {
 
 var result = (0, _ponyfill2['default'])(root);
 exports['default'] = result;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1), __webpack_require__(2)(module)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2), __webpack_require__(3)(module)))
 
 /***/ }),
 /* 47 */
@@ -19165,9 +19196,9 @@ function symbolObservablePonyfill(root) {
 
 "use strict";
 /* WEBPACK VAR INJECTION */(function(process) {/* harmony export (immutable) */ __webpack_exports__["a"] = combineReducers;
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__createStore__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_lodash_es_isPlainObject__ = __webpack_require__(7);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__utils_warning__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__createStore__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_lodash_es_isPlainObject__ = __webpack_require__(8);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__utils_warning__ = __webpack_require__(10);
 
 
 
@@ -19298,7 +19329,7 @@ function combineReducers(reducers) {
     return hasChanged ? nextState : state;
   };
 }
-/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(5)))
+/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(6)))
 
 /***/ }),
 /* 49 */
@@ -19360,7 +19391,7 @@ function bindActionCreators(actionCreators, dispatch) {
 
 "use strict";
 /* harmony export (immutable) */ __webpack_exports__["a"] = applyMiddleware;
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__compose__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__compose__ = __webpack_require__(11);
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 
@@ -19421,7 +19452,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _redux = __webpack_require__(4);
+var _redux = __webpack_require__(5);
 
 var _playerReducer = __webpack_require__(52);
 
@@ -19486,25 +19517,29 @@ var _lodash = __webpack_require__(0);
 
 var _lodash2 = _interopRequireDefault(_lodash);
 
+var _game = __webpack_require__(1);
+
+var _game2 = _interopRequireDefault(_game);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function appendSVG(gameboard) {
+function appendSVG() {
   return new Promise(function (resolve) {
     var catan = document.getElementById('catan');
 
-    _lodash2.default.each(gameboard.svg.hexagons, function (group) {
+    _lodash2.default.each(_game2.default.svg.hexagons, function (group) {
       catan.appendChild(group);
     });
 
-    _lodash2.default.each(gameboard.svg.segments, function (segment) {
+    _lodash2.default.each(_game2.default.svg.segments, function (segment) {
       catan.appendChild(segment);
     });
 
-    _lodash2.default.each(gameboard.svg.nodes, function (node) {
+    _lodash2.default.each(_game2.default.svg.nodes, function (node) {
       catan.appendChild(node);
     });
 
-    resolve(gameboard);
+    resolve(_game2.default);
   });
 }
 

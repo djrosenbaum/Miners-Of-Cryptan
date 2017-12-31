@@ -18,16 +18,15 @@ function startNewGame() {
     .then(initStore)
     .then(generateSVG)
     .then(appendSVG)
-    .then((gameboard) => {
+    .then(() => {
       console.log('success!');
-      console.log(gameboard);
+      console.log(game);
 
-      // dispatch settlement placement
-      // game.store.dispatch({
-      //   type: 'ADD_SETTLEMENT',
-      //   index: 0,
-      //   coordinate: [169.9, 55],
-      // });
+      game.store.dispatch({
+        type: 'ADD_SETTLEMENT',
+        index: 0,
+        coordinate: [169.9, 55],
+      });
     });
 }
 
