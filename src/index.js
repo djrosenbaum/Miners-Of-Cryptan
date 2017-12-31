@@ -1,3 +1,4 @@
+import game from './game/game';
 import generateNewGame from './generators/generateNewGame';
 import generateNewLayout from './layout/generator/generateNewLayout';
 import generateSVG from './layout/generator/generateSVG';
@@ -18,17 +19,15 @@ function startNewGame() {
     .then(generateSVG)
     .then(appendSVG)
     .then((gameboard) => {
-      window.gameboard = gameboard;
-
       console.log('success!');
       console.log(gameboard);
 
       // dispatch settlement placement
-      gameboard.store.dispatch({
-        type: 'ADD_SETTLEMENT',
-        index: 0,
-        coordinate: [169.9, 55],
-      });
+      // game.store.dispatch({
+      //   type: 'ADD_SETTLEMENT',
+      //   index: 0,
+      //   coordinate: [169.9, 55],
+      // });
     });
 }
 

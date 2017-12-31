@@ -1,9 +1,11 @@
 import _ from 'lodash';
+import graphicLocation from '../../lookup/graphicLocation';
 
 const ns = 'http://www.w3.org/2000/svg';
 
 function buildHexagons(gameboard) {
   return gameboard.layout.hexagons.map((hexagon) => {
+    const gameTile = _.find(gameboard.gameTiles, { grid: hexagon.coordinate.join('_') });
     const group = document.createElementNS(ns, 'g');
 
     const polygon = document.createElementNS(ns, 'polygon');
@@ -18,7 +20,7 @@ function buildHexagons(gameboard) {
     circle.classList.add('centerPoint');
     group.appendChild(circle);
 
-    const tileNumber = _.find(gameboard.gameTiles, { grid: hexagon.coordinate.join('_') }).number;
+    const tileNumber = gameTile.number;
     if (tileNumber) {
       const text1 = document.createElementNS(ns, 'text');
       text1.setAttribute('x', hexagon.centerPoint[0]);
@@ -40,6 +42,16 @@ function buildHexagons(gameboard) {
       text2.classList.add('tileProbability');
       text2.textContent = Array(gameboard.rules.probability[tileNumber]).fill('\u2022').join('');
       group.appendChild(text2);
+    }
+
+    if (probability) {
+      const terrain = document.createElementNS(ns, 'image');
+      terrain.setAttributeNS('http://www.w3.org/1999/xlink', 'href', graphicLocation[gameTile.terrain]);
+      terrain.setAttribute('width', '35');
+      terrain.setAttribute('x', hexagon.centerPoint[0] - 17);
+      terrain.setAttribute('y', hexagon.centerPoint[1] - 25);
+      terrain.classList.add('tileTerrain');
+      group.appendChild(terrain);
     }
 
     return group;

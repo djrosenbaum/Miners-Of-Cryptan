@@ -3,7 +3,7 @@ const resourceProduction = {
   forest: 'lumber',
   mountain: 'ore',
   field: 'grain',
-  pasture: 'wood',
+  pasture: 'wool',
 };
 
 export default resourceProduction;
