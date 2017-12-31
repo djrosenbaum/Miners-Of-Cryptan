@@ -18623,20 +18623,54 @@ exports.default = generateSVG;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+
+var _lodash = __webpack_require__(0);
+
+var _lodash2 = _interopRequireDefault(_lodash);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var ns = 'http://www.w3.org/2000/svg';
+
 function buildHexagons(gameboard) {
   return gameboard.layout.hexagons.map(function (hexagon) {
-    var group = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+    var group = document.createElementNS(ns, 'g');
 
-    var polygon = document.createElementNS('http://www.w3.org/2000/svg', 'polygon');
+    var polygon = document.createElementNS(ns, 'polygon');
     polygon.setAttribute('points', hexagon.points.join(' '));
+    polygon.classList.add('gameTile');
+    group.appendChild(polygon);
 
-    var circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+    var circle = document.createElementNS(ns, 'circle');
     circle.setAttribute('r', 0.5);
     circle.setAttribute('cx', hexagon.centerPoint[0]);
     circle.setAttribute('cy', hexagon.centerPoint[1]);
-
-    group.appendChild(polygon);
+    circle.classList.add('centerPoint');
     group.appendChild(circle);
+
+    var tileNumber = _lodash2.default.find(gameboard.gameTiles, { grid: hexagon.coordinate.join('_') }).number;
+    if (tileNumber) {
+      var text1 = document.createElementNS(ns, 'text');
+      text1.setAttribute('x', hexagon.centerPoint[0]);
+      text1.setAttribute('y', hexagon.centerPoint[1]);
+      text1.setAttribute('dy', 15);
+      text1.setAttribute('text-anchor', 'middle');
+      text1.classList.add('tileNumber');
+      text1.textContent = tileNumber;
+      group.appendChild(text1);
+    }
+
+    var probability = gameboard.rules.probability[tileNumber];
+    if (probability) {
+      var text2 = document.createElementNS(ns, 'text');
+      text2.setAttribute('x', hexagon.centerPoint[0]);
+      text2.setAttribute('y', hexagon.centerPoint[1]);
+      text2.setAttribute('dy', 20);
+      text2.setAttribute('text-anchor', 'middle');
+      text2.classList.add('tileProbability');
+      text2.textContent = Array(gameboard.rules.probability[tileNumber]).fill('\u2022').join('');
+      group.appendChild(text2);
+    }
 
     return group;
   });

@@ -3,8 +3,21 @@
 <head>
   <title>Miners of Cryptan</title>
   <style>
+    .svg_wrapper {
+      display: inline-block;
+      left: 50%;
+      perspective: 3000px;     
+      position: absolute;      
+      transform: translateX(-50%);
+    }
+
+    svg {
+      transform-style: preserve-3d;
+      transform: rotateX(40deg) rotateY(0);
+    }
+
     svg polygon {
-      fill: #e1e1e1;
+      fill: #F8F8F8;
     }
 
     svg line {
@@ -14,12 +27,32 @@
     }
 
     svg circle {
+      visibility: hidden;
       fill: #777;
     }
+
+    svg text {
+      font-family: 'Stoke', sans-serif;
+      fill: #333;
+      user-select: none;
+      letter-spacing: 1px;
+    }
+
+    text.tileNumber {
+      font-size: 10px;
+    }
+
+    text.tileProbability {
+      font-size: 5px;
+    }
   </style>
-  <script src="./bundle.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Stoke:300,400" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Archivo+Black" rel="stylesheet">
 </head>
 <body>
-<svg id="catan" width="80vw" viewBox="0 0 290 260"></svg>
+  <div class="svg_wrapper">
+    <svg id="catan" width="80vw" viewBox="0 0 290 260" text-rendering="optimizeLegibility"></svg>
+  </div>
+<script src="./bundle.js"></script>
 </body>
 </html>
