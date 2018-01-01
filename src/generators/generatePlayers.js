@@ -1,6 +1,6 @@
 import _ from 'lodash';
-import player from '../components/player';
-import availableColors from '../components/availableColors';
+import player from '../config/player';
+import availableColors from '../config/availableColors';
 
 function setPlayerType(index) {
   if (index === 0) {

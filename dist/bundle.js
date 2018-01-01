@@ -17945,8 +17945,8 @@ function generateNewGame(settings) {
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_lodash__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_lodash___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_lodash__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_terrains__ = __webpack_require__(15);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_numberTokens__ = __webpack_require__(16);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__config_terrains__ = __webpack_require__(15);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__config_numberTokens__ = __webpack_require__(16);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__layout_tileGrid__ = __webpack_require__(17);
 
 
@@ -17970,9 +17970,9 @@ function buildGameTile(numberToken, index) {
 
 function generateGameTiles() {
   state = {};
-  state.terrains = Object(__WEBPACK_IMPORTED_MODULE_1__components_terrains__["a" /* default */])();
+  state.terrains = Object(__WEBPACK_IMPORTED_MODULE_1__config_terrains__["a" /* default */])();
   state.tileGrid = Object(__WEBPACK_IMPORTED_MODULE_3__layout_tileGrid__["a" /* default */])();
-  state.numberTokens = Object(__WEBPACK_IMPORTED_MODULE_2__components_numberTokens__["a" /* default */])();
+  state.numberTokens = Object(__WEBPACK_IMPORTED_MODULE_2__config_numberTokens__["a" /* default */])();
   state.numberTokens.splice(state.terrains.indexOf('desert'), 0, {});
 
   return __WEBPACK_IMPORTED_MODULE_0_lodash___default.a.forEach(state.numberTokens, buildGameTile);
@@ -18113,8 +18113,8 @@ function tileGrid() {
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_lodash__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_lodash___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_lodash__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_player__ = __webpack_require__(19);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_availableColors__ = __webpack_require__(20);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__config_player__ = __webpack_require__(19);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__config_availableColors__ = __webpack_require__(20);
 
 
 
@@ -18135,9 +18135,9 @@ function setPlayerColor(colors, settings, index) {
 }
 
 function generatePlayers(settings) {
-  const colors = __WEBPACK_IMPORTED_MODULE_0_lodash___default.a.shuffle(Object(__WEBPACK_IMPORTED_MODULE_2__components_availableColors__["a" /* default */])());
+  const colors = __WEBPACK_IMPORTED_MODULE_0_lodash___default.a.shuffle(Object(__WEBPACK_IMPORTED_MODULE_2__config_availableColors__["a" /* default */])());
 
-  return __WEBPACK_IMPORTED_MODULE_0_lodash___default.a.shuffle(__WEBPACK_IMPORTED_MODULE_0_lodash___default.a.times(settings.totalPlayers, index => Object(__WEBPACK_IMPORTED_MODULE_1__components_player__["a" /* default */])({
+  return __WEBPACK_IMPORTED_MODULE_0_lodash___default.a.shuffle(__WEBPACK_IMPORTED_MODULE_0_lodash___default.a.times(settings.totalPlayers, index => Object(__WEBPACK_IMPORTED_MODULE_1__config_player__["a" /* default */])({
     type: setPlayerType(index),
     color: setPlayerColor(colors, settings, index)
   })));

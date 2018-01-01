@@ -1,6 +1,6 @@
 import _ from 'lodash';
-import terrains from '../components/terrains';
-import numberTokens from '../components/numberTokens';
+import terrains from '../config/terrains';
+import numberTokens from '../config/numberTokens';
 import tileGrid from '../layout/tileGrid';
 
 let state = {};
