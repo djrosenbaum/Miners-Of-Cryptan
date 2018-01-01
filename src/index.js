@@ -31,5 +31,8 @@ function startNewGame() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-  startNewGame();
+  document.getElementById('play').addEventListener('click', () => {
+    document.getElementById('intro').style.display = 'none';
+    startNewGame();
+  });
 });

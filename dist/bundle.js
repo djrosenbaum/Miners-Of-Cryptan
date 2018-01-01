@@ -17933,7 +17933,10 @@ function startNewGame() {
 }
 
 document.addEventListener('DOMContentLoaded', function () {
-  startNewGame();
+  document.getElementById('play').addEventListener('click', function () {
+    document.getElementById('intro').style.display = 'none';
+    startNewGame();
+  });
 });
 
 /***/ }),

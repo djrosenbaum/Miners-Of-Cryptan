@@ -1,0 +1,81 @@
+.intro {
+  font-family: Stoke,serif;
+  user-select: none;
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(255,255,255,.9);
+  z-index: 99;
+}
+
+.intro .gameName {
+  cursor: default;
+  text-align: center;
+  font-size: 36px;
+  color: #333;
+  padding-top: 10%;
+}
+
+.intro .settings {
+  width: 300px;
+  margin: 0 auto;
+}
+
+.intro .settings .setting {
+  padding-top: 10px;
+}
+
+.intro .settings .description {
+  display: inline;
+}
+
+.intro .settings .selection {
+  cursor: pointer;
+  display: inline-block;
+}
+
+.intro .settings .selection.selected {
+  border: 1px solid #000;
+}
+
+.intro .settings .number {
+  border: 1px solid #ccc;
+}
+
+.intro .settings .color {
+  border: 1px solid #ccc;
+  width: 10px;
+  height: 10px;
+}
+
+.intro .settings .blue {
+  background-color: #06c;
+}
+.intro .settings .orange {
+  background-color: #f93;
+}
+.intro .settings .white {
+  background-color: #fff;
+}
+.intro .settings .red {
+  background-color: #f33;
+}
+
+.intro .play_wrapper {
+    margin-top: 40px;
+    text-align: center;
+}
+
+.intro .play {
+    cursor: pointer;
+    display: inline-block;
+    background-color: #333;
+    color: #fff;
+    padding: 15px 40px;
+    border-radius: 4px;
+    font-size: 24px;
+    letter-spacing: 6px;
+    transition: color 1s;
+}
