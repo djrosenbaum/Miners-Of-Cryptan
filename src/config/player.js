@@ -1,15 +1,11 @@
-function player(payload) {
-  return {
-    settlements: [],
-    cities: [],
-    roads: [],
-    harbors: [],
-    specialCards: [],
-    developmentCards: [],
-    resourceCards: [],
-    type: payload.type,
-    color: payload.color,
-  };
-}
+const player = {
+  settlements: [],
+  cities: [],
+  roads: [],
+  harbors: [],
+  specialCards: [],
+  developmentCards: [],
+  resourceCards: [],
+};
 
 export default player;

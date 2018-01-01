@@ -1,4 +1,4 @@
-import roundToNearest from '../../helpers/roundToNearest';
+import roundToNearest from '../../../../helpers/roundToNearest';
 
 function pointX(x, theta, radius) {
   const point = x + (radius * Math.sin(theta));

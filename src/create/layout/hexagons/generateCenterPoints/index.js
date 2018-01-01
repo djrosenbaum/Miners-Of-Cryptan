@@ -1,4 +1,4 @@
-import roundToNearest from '../../helpers/roundToNearest';
+import roundToNearest from '../../../../helpers/roundToNearest';
 
 function generateCenterPoints(grid) {
   const radius = 30;
