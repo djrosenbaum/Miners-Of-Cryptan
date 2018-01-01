@@ -65,6 +65,15 @@
 /************************************************************************/
 /******/ ([
 /* 0 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+const game = {};
+
+/* harmony default export */ __webpack_exports__["a"] = (game);
+
+/***/ }),
+/* 1 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global, module) {var __WEBPACK_AMD_DEFINE_RESULT__;/**
@@ -17156,20 +17165,6 @@
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2), __webpack_require__(3)(module)))
 
 /***/ }),
-/* 1 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-var game = {};
-
-exports.default = game;
-
-/***/ }),
 /* 2 */
 /***/ (function(module, exports) {
 
@@ -17226,37 +17221,31 @@ module.exports = function(module) {
 
 /***/ }),
 /* 4 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
 function roundToNearest(num, toNearest) {
   return Math.round(100 * num) / toNearest;
 }
 
-exports.default = roundToNearest;
+/* harmony default export */ __webpack_exports__["a"] = (roundToNearest);
 
 /***/ }),
 /* 5 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* WEBPACK VAR INJECTION */(function(process) {/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__createStore__ = __webpack_require__(7);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__combineReducers__ = __webpack_require__(48);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__bindActionCreators__ = __webpack_require__(49);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__applyMiddleware__ = __webpack_require__(50);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__compose__ = __webpack_require__(11);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__utils_warning__ = __webpack_require__(10);
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "createStore", function() { return __WEBPACK_IMPORTED_MODULE_0__createStore__["b"]; });
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "combineReducers", function() { return __WEBPACK_IMPORTED_MODULE_1__combineReducers__["a"]; });
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "bindActionCreators", function() { return __WEBPACK_IMPORTED_MODULE_2__bindActionCreators__["a"]; });
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "applyMiddleware", function() { return __WEBPACK_IMPORTED_MODULE_3__applyMiddleware__["a"]; });
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "compose", function() { return __WEBPACK_IMPORTED_MODULE_4__compose__["a"]; });
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return __WEBPACK_IMPORTED_MODULE_0__createStore__["b"]; });
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_1__combineReducers__["a"]; });
+/* unused harmony reexport bindActionCreators */
+/* unused harmony reexport applyMiddleware */
+/* unused harmony reexport compose */
 
 
 
@@ -17881,139 +17870,93 @@ function compose() {
 
 /***/ }),
 /* 12 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__generators_generateNewGame__ = __webpack_require__(13);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__layout_generator_generateNewLayout__ = __webpack_require__(27);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__layout_generator_generateSVG__ = __webpack_require__(31);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__redux_store__ = __webpack_require__(36);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__layout_svg_appendSVG__ = __webpack_require__(53);
 
 
-var _game = __webpack_require__(1);
 
-var _game2 = _interopRequireDefault(_game);
 
-var _generateNewGame = __webpack_require__(13);
 
-var _generateNewGame2 = _interopRequireDefault(_generateNewGame);
 
-var _generateNewLayout = __webpack_require__(27);
-
-var _generateNewLayout2 = _interopRequireDefault(_generateNewLayout);
-
-var _generateSVG = __webpack_require__(31);
-
-var _generateSVG2 = _interopRequireDefault(_generateSVG);
-
-var _initStore = __webpack_require__(36);
-
-var _initStore2 = _interopRequireDefault(_initStore);
-
-var _appendSVG = __webpack_require__(53);
-
-var _appendSVG2 = _interopRequireDefault(_appendSVG);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var settings = {
-  players: {
-    color: 'orange',
-    totalPlayers: 3
-  }
-};
-
-function startNewGame() {
-  (0, _generateNewGame2.default)(settings).then(_generateNewLayout2.default).then(_initStore2.default).then(_generateSVG2.default).then(_appendSVG2.default).then(function () {
+function startNewGame(settings) {
+  Object(__WEBPACK_IMPORTED_MODULE_0__generators_generateNewGame__["a" /* default */])(settings).then(__WEBPACK_IMPORTED_MODULE_1__layout_generator_generateNewLayout__["a" /* default */]).then(__WEBPACK_IMPORTED_MODULE_2__layout_generator_generateSVG__["a" /* default */]).then(__WEBPACK_IMPORTED_MODULE_4__layout_svg_appendSVG__["a" /* default */]).then(() => {
     console.log('success!');
-    console.log(_game2.default);
-
-    _game2.default.store.dispatch({
-      type: 'ADD_SETTLEMENT',
-      index: 0,
-      coordinate: [169.9, 55]
-    });
-  });
+    console.log(__WEBPACK_IMPORTED_MODULE_3__redux_store__["a" /* default */]);
+  }).catch(err => console.error(err));
 }
 
-document.addEventListener('DOMContentLoaded', function () {
-  document.getElementById('play').addEventListener('click', function () {
+document.addEventListener('DOMContentLoaded', () => {
+  document.getElementById('play').addEventListener('click', () => {
     document.getElementById('intro').style.display = 'none';
-    startNewGame();
+    // store.dispatch({
+    //   type: 'START_NEW_GAME',
+    //   settings: {
+    //     color: 'orange',
+    //     totalPlayers: 3,
+    //   },
+    // });
+    startNewGame({
+      players: {
+        color: 'orange',
+        totalPlayers: 3
+      }
+    });
   });
 });
 
 /***/ }),
 /* 13 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__game_game__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__generateGameTiles__ = __webpack_require__(14);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__generatePlayers__ = __webpack_require__(18);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__generateRules__ = __webpack_require__(21);
 
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
 
-var _game = __webpack_require__(1);
 
-var _game2 = _interopRequireDefault(_game);
-
-var _generateGameTiles = __webpack_require__(14);
-
-var _generateGameTiles2 = _interopRequireDefault(_generateGameTiles);
-
-var _generatePlayers = __webpack_require__(18);
-
-var _generatePlayers2 = _interopRequireDefault(_generatePlayers);
-
-var _generateRules = __webpack_require__(21);
-
-var _generateRules2 = _interopRequireDefault(_generateRules);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function generateNewGame(settings) {
-  return new Promise(function (resolve) {
-    _game2.default.settings = settings;
-    _game2.default.gameTiles = (0, _generateGameTiles2.default)();
-    _game2.default.players = (0, _generatePlayers2.default)(settings.players);
-    _game2.default.rules = (0, _generateRules2.default)();
+  return new Promise(resolve => {
+    __WEBPACK_IMPORTED_MODULE_0__game_game__["a" /* default */].settings = settings;
+    __WEBPACK_IMPORTED_MODULE_0__game_game__["a" /* default */].gameTiles = Object(__WEBPACK_IMPORTED_MODULE_1__generateGameTiles__["a" /* default */])();
+    __WEBPACK_IMPORTED_MODULE_0__game_game__["a" /* default */].players = Object(__WEBPACK_IMPORTED_MODULE_2__generatePlayers__["a" /* default */])(settings.players);
+    __WEBPACK_IMPORTED_MODULE_0__game_game__["a" /* default */].rules = Object(__WEBPACK_IMPORTED_MODULE_3__generateRules__["a" /* default */])();
 
-    resolve(_game2.default);
+    resolve(__WEBPACK_IMPORTED_MODULE_0__game_game__["a" /* default */]);
   });
 }
 
-exports.default = generateNewGame;
+/* harmony default export */ __webpack_exports__["a"] = (generateNewGame);
 
 /***/ }),
 /* 14 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_lodash__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_lodash___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_lodash__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_terrains__ = __webpack_require__(15);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_numberTokens__ = __webpack_require__(16);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__layout_tileGrid__ = __webpack_require__(17);
 
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
 
-var _lodash = __webpack_require__(0);
 
-var _lodash2 = _interopRequireDefault(_lodash);
 
-var _terrains = __webpack_require__(15);
-
-var _terrains2 = _interopRequireDefault(_terrains);
-
-var _numberTokens = __webpack_require__(16);
-
-var _numberTokens2 = _interopRequireDefault(_numberTokens);
-
-var _tileGrid = __webpack_require__(17);
-
-var _tileGrid2 = _interopRequireDefault(_tileGrid);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var state = {};
+let state = {};
 
 function buildGameTile(numberToken, index) {
-  var gameTile = {
+  const gameTile = {
     terrain: state.terrains[index],
     grid: state.tileGrid[index]
   };
@@ -18022,39 +17965,31 @@ function buildGameTile(numberToken, index) {
     gameTile.robber = true;
   }
 
-  return _lodash2.default.merge(numberToken, gameTile);
+  return __WEBPACK_IMPORTED_MODULE_0_lodash___default.a.merge(numberToken, gameTile);
 }
 
 function generateGameTiles() {
   state = {};
-  state.terrains = (0, _terrains2.default)();
-  state.tileGrid = (0, _tileGrid2.default)();
-  state.numberTokens = (0, _numberTokens2.default)();
+  state.terrains = Object(__WEBPACK_IMPORTED_MODULE_1__components_terrains__["a" /* default */])();
+  state.tileGrid = Object(__WEBPACK_IMPORTED_MODULE_3__layout_tileGrid__["a" /* default */])();
+  state.numberTokens = Object(__WEBPACK_IMPORTED_MODULE_2__components_numberTokens__["a" /* default */])();
   state.numberTokens.splice(state.terrains.indexOf('desert'), 0, {});
 
-  return _lodash2.default.forEach(state.numberTokens, buildGameTile);
+  return __WEBPACK_IMPORTED_MODULE_0_lodash___default.a.forEach(state.numberTokens, buildGameTile);
 }
 
-exports.default = generateGameTiles;
+/* harmony default export */ __webpack_exports__["a"] = (generateGameTiles);
 
 /***/ }),
 /* 15 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_lodash__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_lodash___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_lodash__);
 
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _lodash = __webpack_require__(0);
-
-var _lodash2 = _interopRequireDefault(_lodash);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var terrainConfig = {
+const terrainConfig = {
   hill: {
     total: 3
   },
@@ -18076,35 +18011,30 @@ var terrainConfig = {
 };
 
 function generateTerrainArray() {
-  var terrainArray = [];
+  const terrainArray = [];
 
   function pushTerrain(terrain, key) {
-    _lodash2.default.times(terrain.total, function () {
+    __WEBPACK_IMPORTED_MODULE_0_lodash___default.a.times(terrain.total, () => {
       terrainArray.push(key);
     });
   }
 
-  _lodash2.default.forEach(terrainConfig, pushTerrain);
+  __WEBPACK_IMPORTED_MODULE_0_lodash___default.a.forEach(terrainConfig, pushTerrain);
 
-  return _lodash2.default.shuffle(terrainArray);
+  return __WEBPACK_IMPORTED_MODULE_0_lodash___default.a.shuffle(terrainArray);
 }
 
 function terrains() {
   return generateTerrainArray();
 }
 
-exports.default = terrains;
+/* harmony default export */ __webpack_exports__["a"] = (terrains);
 
 /***/ }),
 /* 16 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
 function numberTokens() {
   return [{
     number: 5,
@@ -18163,48 +18093,31 @@ function numberTokens() {
   }];
 }
 
-exports.default = numberTokens;
+/* harmony default export */ __webpack_exports__["a"] = (numberTokens);
 
 /***/ }),
 /* 17 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
 function tileGrid() {
   return ['1_0', '0_1', '0_2', '0_3', '1_4', '2_4', '3_4', '3_3', '4_2', '3_1', '3_0', '2_0', '1_1', '1_2', '1_3', '2_3', '3_2', '2_1', '2_2'];
 }
 
-exports.default = tileGrid;
+/* harmony default export */ __webpack_exports__["a"] = (tileGrid);
 
 /***/ }),
 /* 18 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_lodash__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_lodash___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_lodash__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_player__ = __webpack_require__(19);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_availableColors__ = __webpack_require__(20);
 
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
 
-var _lodash = __webpack_require__(0);
-
-var _lodash2 = _interopRequireDefault(_lodash);
-
-var _player = __webpack_require__(19);
-
-var _player2 = _interopRequireDefault(_player);
-
-var _availableColors = __webpack_require__(20);
-
-var _availableColors2 = _interopRequireDefault(_availableColors);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function setPlayerType(index) {
   if (index === 0) {
@@ -18215,35 +18128,28 @@ function setPlayerType(index) {
 
 function setPlayerColor(colors, settings, index) {
   if (index === 0) {
-    _lodash2.default.pull(colors, settings.color);
+    __WEBPACK_IMPORTED_MODULE_0_lodash___default.a.pull(colors, settings.color);
     return settings.color;
   }
   return colors.shift();
 }
 
 function generatePlayers(settings) {
-  var colors = _lodash2.default.shuffle((0, _availableColors2.default)());
+  const colors = __WEBPACK_IMPORTED_MODULE_0_lodash___default.a.shuffle(Object(__WEBPACK_IMPORTED_MODULE_2__components_availableColors__["a" /* default */])());
 
-  return _lodash2.default.shuffle(_lodash2.default.times(settings.totalPlayers, function (index) {
-    return (0, _player2.default)({
-      type: setPlayerType(index),
-      color: setPlayerColor(colors, settings, index)
-    });
-  }));
+  return __WEBPACK_IMPORTED_MODULE_0_lodash___default.a.shuffle(__WEBPACK_IMPORTED_MODULE_0_lodash___default.a.times(settings.totalPlayers, index => Object(__WEBPACK_IMPORTED_MODULE_1__components_player__["a" /* default */])({
+    type: setPlayerType(index),
+    color: setPlayerColor(colors, settings, index)
+  })));
 }
 
-exports.default = generatePlayers;
+/* harmony default export */ __webpack_exports__["a"] = (generatePlayers);
 
 /***/ }),
 /* 19 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
 function player(payload) {
   return {
     settlements: [],
@@ -18258,133 +18164,91 @@ function player(payload) {
   };
 }
 
-exports.default = player;
+/* harmony default export */ __webpack_exports__["a"] = (player);
 
 /***/ }),
 /* 20 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
 function availableColors() {
   return ['blue', 'orange', 'red', 'white'];
 }
 
-exports.default = availableColors;
+/* harmony default export */ __webpack_exports__["a"] = (availableColors);
 
 /***/ }),
 /* 21 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__lookup_buildingCostCard__ = __webpack_require__(22);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__lookup_largestArmy__ = __webpack_require__(23);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__lookup_longestRoad__ = __webpack_require__(24);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__lookup_probability__ = __webpack_require__(25);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__lookup_resourceProduction__ = __webpack_require__(26);
 
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
 
-var _buildingCostCard = __webpack_require__(22);
 
-var _buildingCostCard2 = _interopRequireDefault(_buildingCostCard);
 
-var _largestArmy = __webpack_require__(23);
-
-var _largestArmy2 = _interopRequireDefault(_largestArmy);
-
-var _longestRoad = __webpack_require__(24);
-
-var _longestRoad2 = _interopRequireDefault(_longestRoad);
-
-var _probability = __webpack_require__(25);
-
-var _probability2 = _interopRequireDefault(_probability);
-
-var _resourceProduction = __webpack_require__(26);
-
-var _resourceProduction2 = _interopRequireDefault(_resourceProduction);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function generateRules() {
   return {
-    buildingCostCard: _buildingCostCard2.default,
-    largestArmy: _largestArmy2.default,
-    longestRoad: _longestRoad2.default,
-    probability: _probability2.default,
-    resourceProduction: _resourceProduction2.default
+    buildingCostCard: __WEBPACK_IMPORTED_MODULE_0__lookup_buildingCostCard__["a" /* default */],
+    largestArmy: __WEBPACK_IMPORTED_MODULE_1__lookup_largestArmy__["a" /* default */],
+    longestRoad: __WEBPACK_IMPORTED_MODULE_2__lookup_longestRoad__["a" /* default */],
+    probability: __WEBPACK_IMPORTED_MODULE_3__lookup_probability__["a" /* default */],
+    resourceProduction: __WEBPACK_IMPORTED_MODULE_4__lookup_resourceProduction__["a" /* default */]
   };
 }
 
-exports.default = generateRules;
+/* harmony default export */ __webpack_exports__["a"] = (generateRules);
 
 /***/ }),
 /* 22 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-var buildingCostCard = {
+const buildingCostCard = {
   road: ['lumber', 'brick'],
   settlement: ['lumber', 'brick', 'grain', 'sheep'],
   city: ['grain', 'grain', 'ore', 'ore', 'ore'],
   developmentCard: ['grain', 'sheep', 'ore']
 };
 
-exports.default = buildingCostCard;
+/* harmony default export */ __webpack_exports__["a"] = (buildingCostCard);
 
 /***/ }),
 /* 23 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-var largestArmy = {
+const largestArmy = {
   minimumKnights: 3,
   victory: 2
 };
 
-exports.default = largestArmy;
+/* harmony default export */ __webpack_exports__["a"] = (largestArmy);
 
 /***/ }),
 /* 24 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-var longestRoad = {
+const longestRoad = {
   minimumSegments: 5,
   victory: 2
 };
 
-exports.default = longestRoad;
+/* harmony default export */ __webpack_exports__["a"] = (longestRoad);
 
 /***/ }),
 /* 25 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-var probability = {
+const probability = {
   2: 1,
   3: 2,
   4: 3,
@@ -18398,19 +18262,14 @@ var probability = {
   12: 1
 };
 
-exports.default = probability;
+/* harmony default export */ __webpack_exports__["a"] = (probability);
 
 /***/ }),
 /* 26 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-var resourceProduction = {
+const resourceProduction = {
   hill: 'brick',
   forest: 'lumber',
   mountain: 'ore',
@@ -18418,176 +18277,113 @@ var resourceProduction = {
   pasture: 'wool'
 };
 
-exports.default = resourceProduction;
+/* harmony default export */ __webpack_exports__["a"] = (resourceProduction);
 
 /***/ }),
 /* 27 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__game_game__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__generateGrid__ = __webpack_require__(28);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__generateCenterPoints__ = __webpack_require__(29);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__generateHexPoints__ = __webpack_require__(30);
 
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
 
-var _lodash = __webpack_require__(0);
 
-var _lodash2 = _interopRequireDefault(_lodash);
-
-var _game = __webpack_require__(1);
-
-var _game2 = _interopRequireDefault(_game);
-
-var _generateGrid = __webpack_require__(28);
-
-var _generateGrid2 = _interopRequireDefault(_generateGrid);
-
-var _generateCenterPoints = __webpack_require__(29);
-
-var _generateCenterPoints2 = _interopRequireDefault(_generateCenterPoints);
-
-var _generateHexPoints = __webpack_require__(30);
-
-var _generateHexPoints2 = _interopRequireDefault(_generateHexPoints);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function generateNewLayout() {
-  return new Promise(function (resolve) {
-    var grid = (0, _generateGrid2.default)(5, 5);
-    var centerPoints = (0, _generateCenterPoints2.default)(grid);
-    var hexPoints = (0, _generateHexPoints2.default)(centerPoints);
+  return new Promise(resolve => {
+    const grid = Object(__WEBPACK_IMPORTED_MODULE_1__generateGrid__["a" /* default */])(5, 5);
+    const centerPoints = Object(__WEBPACK_IMPORTED_MODULE_2__generateCenterPoints__["a" /* default */])(grid);
+    const hexPoints = Object(__WEBPACK_IMPORTED_MODULE_3__generateHexPoints__["a" /* default */])(centerPoints);
 
-    var layout = {};
-    layout.hexagons = grid.map(function (coordinate, index) {
-      return {
+    __WEBPACK_IMPORTED_MODULE_0__game_game__["a" /* default */].layout = {
+      hexagons: grid.map((coordinate, index) => ({
         coordinate: grid[index],
         centerPoint: centerPoints[index],
         points: hexPoints[index]
-      };
-    });
-
-    _lodash2.default.merge(_game2.default, { layout: layout });
+      }))
+    };
 
     resolve();
   });
 }
 
-exports.default = generateNewLayout;
+/* harmony default export */ __webpack_exports__["a"] = (generateNewLayout);
 
 /***/ }),
 /* 28 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_lodash__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_lodash___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_lodash__);
 
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _lodash = __webpack_require__(0);
-
-var _lodash2 = _interopRequireDefault(_lodash);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var excludedCoordinates = ['0_0', '0_4', '4_0', '4_1', '4_3', '4_4'];
+const excludedCoordinates = ['0_0', '0_4', '4_0', '4_1', '4_3', '4_4'];
 
 function generateGrid(columns, rows) {
-  return _lodash2.default.flatten(_lodash2.default.times(columns, function (column) {
-    return _lodash2.default.times(rows, function (row) {
-      return [column, row];
-    }).filter(function (val) {
-      return excludedCoordinates.indexOf(val.join('_')) === -1;
-    });
-  }));
+  return __WEBPACK_IMPORTED_MODULE_0_lodash___default.a.flatten(__WEBPACK_IMPORTED_MODULE_0_lodash___default.a.times(columns, column => __WEBPACK_IMPORTED_MODULE_0_lodash___default.a.times(rows, row => [column, row]).filter(val => excludedCoordinates.indexOf(val.join('_')) === -1)));
 }
 
-exports.default = generateGrid;
+/* harmony default export */ __webpack_exports__["a"] = (generateGrid);
 
 /***/ }),
 /* 29 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__helpers_roundToNearest__ = __webpack_require__(4);
 
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }();
-
-var _roundToNearest = __webpack_require__(4);
-
-var _roundToNearest2 = _interopRequireDefault(_roundToNearest);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function generateCenterPoints(grid) {
-  var radius = 30;
-  var offset = Math.sqrt(3) * radius / 2;
-  var x = void 0;
-  var y = void 0;
+  const radius = 30;
+  const offset = Math.sqrt(3) * radius / 2;
+  let x;
+  let y;
 
-  return grid.map(function (gridCoordinate) {
-    var _gridCoordinate = _slicedToArray(gridCoordinate, 2),
-        column = _gridCoordinate[0],
-        row = _gridCoordinate[1];
+  return grid.map(gridCoordinate => {
+    const [column, row] = gridCoordinate;
 
     x = 40 + offset * column * 2; // 40 pushes the grid off the left edge of svg viewbox
     y = 40 + offset * row * Math.sqrt(3);
     if (row % 2 !== 0) {
       x += offset;
     }
-    return [(0, _roundToNearest2.default)(x, 100), (0, _roundToNearest2.default)(y, 100)];
+    return [Object(__WEBPACK_IMPORTED_MODULE_0__helpers_roundToNearest__["a" /* default */])(x, 100), Object(__WEBPACK_IMPORTED_MODULE_0__helpers_roundToNearest__["a" /* default */])(y, 100)];
   });
 }
 
-exports.default = generateCenterPoints;
+/* harmony default export */ __webpack_exports__["a"] = (generateCenterPoints);
 
 /***/ }),
 /* 30 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__helpers_roundToNearest__ = __webpack_require__(4);
 
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }();
-
-var _roundToNearest = __webpack_require__(4);
-
-var _roundToNearest2 = _interopRequireDefault(_roundToNearest);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function pointX(x, theta, radius) {
-  var point = x + radius * Math.sin(theta);
-  return (0, _roundToNearest2.default)(point, 100);
+  const point = x + radius * Math.sin(theta);
+  return Object(__WEBPACK_IMPORTED_MODULE_0__helpers_roundToNearest__["a" /* default */])(point, 100);
 }
 
 function pointY(y, theta, radius) {
-  var point = y + radius * Math.cos(theta);
-  return (0, _roundToNearest2.default)(point, 100);
+  const point = y + radius * Math.cos(theta);
+  return Object(__WEBPACK_IMPORTED_MODULE_0__helpers_roundToNearest__["a" /* default */])(point, 100);
 }
 
 function generateHexPoints(centerPoints) {
-  var radius = 30;
+  const radius = 30;
 
-  return centerPoints.map(function (coordinate) {
-    var _coordinate = _slicedToArray(coordinate, 2),
-        x = _coordinate[0],
-        y = _coordinate[1];
+  return centerPoints.map(coordinate => {
+    const [x, y] = coordinate;
+    const hexPoints = [];
 
-    var hexPoints = [];
-
-    for (var theta = 0; theta < Math.PI * 2; theta += Math.PI / 3) {
+    for (let theta = 0; theta < Math.PI * 2; theta += Math.PI / 3) {
       hexPoints.push([pointX(x, theta, radius), pointY(y, theta, radius)]);
     }
 
@@ -18595,103 +18391,67 @@ function generateHexPoints(centerPoints) {
   });
 }
 
-exports.default = generateHexPoints;
+/* harmony default export */ __webpack_exports__["a"] = (generateHexPoints);
 
 /***/ }),
 /* 31 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__game_game__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__svg_buildHexagons__ = __webpack_require__(32);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__svg_buildSegments__ = __webpack_require__(34);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__svg_buildNodes__ = __webpack_require__(35);
 
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
 
-var _lodash = __webpack_require__(0);
 
-var _lodash2 = _interopRequireDefault(_lodash);
-
-var _game = __webpack_require__(1);
-
-var _game2 = _interopRequireDefault(_game);
-
-var _buildHexagons = __webpack_require__(32);
-
-var _buildHexagons2 = _interopRequireDefault(_buildHexagons);
-
-var _buildSegments = __webpack_require__(34);
-
-var _buildSegments2 = _interopRequireDefault(_buildSegments);
-
-var _buildNodes = __webpack_require__(35);
-
-var _buildNodes2 = _interopRequireDefault(_buildNodes);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function generateSVG() {
-  return new Promise(function (resolve) {
-    var svg = {};
-    svg.hexagons = (0, _buildHexagons2.default)();
-    svg.segments = (0, _buildSegments2.default)();
-    svg.nodes = (0, _buildNodes2.default)();
-
-    _lodash2.default.merge(_game2.default, { svg: svg });
-
-    resolve(_game2.default);
-  });
+  __WEBPACK_IMPORTED_MODULE_0__game_game__["a" /* default */].svg = {
+    hexagons: Object(__WEBPACK_IMPORTED_MODULE_1__svg_buildHexagons__["a" /* default */])(),
+    segments: Object(__WEBPACK_IMPORTED_MODULE_2__svg_buildSegments__["a" /* default */])(),
+    nodes: Object(__WEBPACK_IMPORTED_MODULE_3__svg_buildNodes__["a" /* default */])()
+  };
 }
 
-exports.default = generateSVG;
+/* harmony default export */ __webpack_exports__["a"] = (generateSVG);
 
 /***/ }),
 /* 32 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_lodash__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_lodash___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_lodash__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__game_game__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__lookup_graphicLocation__ = __webpack_require__(33);
 
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
 
-var _lodash = __webpack_require__(0);
 
-var _lodash2 = _interopRequireDefault(_lodash);
-
-var _game = __webpack_require__(1);
-
-var _game2 = _interopRequireDefault(_game);
-
-var _graphicLocation = __webpack_require__(33);
-
-var _graphicLocation2 = _interopRequireDefault(_graphicLocation);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var ns = 'http://www.w3.org/2000/svg';
+const ns = 'http://www.w3.org/2000/svg';
 
 function buildHexagons() {
-  return _game2.default.layout.hexagons.map(function (hexagon) {
-    var gameTile = _lodash2.default.find(_game2.default.gameTiles, { grid: hexagon.coordinate.join('_') });
-    var group = document.createElementNS(ns, 'g');
+  return __WEBPACK_IMPORTED_MODULE_1__game_game__["a" /* default */].layout.hexagons.map(hexagon => {
+    const gameTile = __WEBPACK_IMPORTED_MODULE_0_lodash___default.a.find(__WEBPACK_IMPORTED_MODULE_1__game_game__["a" /* default */].gameTiles, { grid: hexagon.coordinate.join('_') });
+    const group = document.createElementNS(ns, 'g');
 
-    var polygon = document.createElementNS(ns, 'polygon');
+    const polygon = document.createElementNS(ns, 'polygon');
     polygon.setAttribute('points', hexagon.points.join(' '));
     polygon.classList.add('gameTile');
     group.appendChild(polygon);
 
-    var circle = document.createElementNS(ns, 'circle');
+    const circle = document.createElementNS(ns, 'circle');
     circle.setAttribute('r', 0.5);
     circle.setAttribute('cx', hexagon.centerPoint[0]);
     circle.setAttribute('cy', hexagon.centerPoint[1]);
     circle.classList.add('centerPoint');
     group.appendChild(circle);
 
-    var tileNumber = gameTile.number;
+    const tileNumber = gameTile.number;
     if (tileNumber) {
-      var text1 = document.createElementNS(ns, 'text');
+      const text1 = document.createElementNS(ns, 'text');
       text1.setAttribute('x', hexagon.centerPoint[0]);
       text1.setAttribute('y', hexagon.centerPoint[1]);
       text1.setAttribute('dy', 15);
@@ -18701,21 +18461,21 @@ function buildHexagons() {
       group.appendChild(text1);
     }
 
-    var probability = _game2.default.rules.probability[tileNumber];
+    const probability = __WEBPACK_IMPORTED_MODULE_1__game_game__["a" /* default */].rules.probability[tileNumber];
     if (probability) {
-      var text2 = document.createElementNS(ns, 'text');
+      const text2 = document.createElementNS(ns, 'text');
       text2.setAttribute('x', hexagon.centerPoint[0]);
       text2.setAttribute('y', hexagon.centerPoint[1]);
       text2.setAttribute('dy', 20);
       text2.setAttribute('text-anchor', 'middle');
       text2.classList.add('tileProbability');
-      text2.textContent = Array(_game2.default.rules.probability[tileNumber]).fill('\u2022').join('');
+      text2.textContent = Array(__WEBPACK_IMPORTED_MODULE_1__game_game__["a" /* default */].rules.probability[tileNumber]).fill('\u2022').join('');
       group.appendChild(text2);
     }
 
     if (probability) {
-      var terrain = document.createElementNS(ns, 'image');
-      terrain.setAttributeNS('http://www.w3.org/1999/xlink', 'href', _graphicLocation2.default[gameTile.terrain]);
+      const terrain = document.createElementNS(ns, 'image');
+      terrain.setAttributeNS('http://www.w3.org/1999/xlink', 'href', __WEBPACK_IMPORTED_MODULE_2__lookup_graphicLocation__["a" /* default */][gameTile.terrain]);
       terrain.setAttribute('width', '35');
       terrain.setAttribute('x', hexagon.centerPoint[0] - 17);
       terrain.setAttribute('y', hexagon.centerPoint[1] - 25);
@@ -18727,19 +18487,14 @@ function buildHexagons() {
   });
 }
 
-exports.default = buildHexagons;
+/* harmony default export */ __webpack_exports__["a"] = (buildHexagons);
 
 /***/ }),
 /* 33 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-var graphicLocation = {
+const graphicLocation = {
   hill: './graphics/ether.svg',
   forest: './graphics/litecoin.svg',
   mountain: './graphics/bitcoin.svg',
@@ -18747,61 +18502,36 @@ var graphicLocation = {
   pasture: './graphics/dash.svg'
 };
 
-exports.default = graphicLocation;
+/* harmony default export */ __webpack_exports__["a"] = (graphicLocation);
 
 /***/ }),
 /* 34 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_lodash__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_lodash___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_lodash__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__game_game__ = __webpack_require__(0);
 
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }();
-
-var _lodash = __webpack_require__(0);
-
-var _lodash2 = _interopRequireDefault(_lodash);
-
-var _game = __webpack_require__(1);
-
-var _game2 = _interopRequireDefault(_game);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function buildSegmentsArray() {
-  var segmentArray = _lodash2.default.flattenDepth(_game2.default.layout.hexagons.map(function (hexagon) {
-    var _hexagon$points = _slicedToArray(hexagon.points, 6),
-        p1 = _hexagon$points[0],
-        p2 = _hexagon$points[1],
-        p3 = _hexagon$points[2],
-        p4 = _hexagon$points[3],
-        p5 = _hexagon$points[4],
-        p6 = _hexagon$points[5];
-
+  const segmentArray = __WEBPACK_IMPORTED_MODULE_0_lodash___default.a.flattenDepth(__WEBPACK_IMPORTED_MODULE_1__game_game__["a" /* default */].layout.hexagons.map(hexagon => {
+    const [p1, p2, p3, p4, p5, p6] = hexagon.points;
     return [[p1, p2], [p2, p3], [p3, p4], [p4, p5], [p5, p6], [p6, p1]];
   }), 1);
 
-  return _lodash2.default.uniqBy(segmentArray, function (segment) {
-    var segmentCopy = _lodash2.default.clone(segment);
-    return _lodash2.default.flatten(segmentCopy).sort().join(',');
+  return __WEBPACK_IMPORTED_MODULE_0_lodash___default.a.uniqBy(segmentArray, segment => {
+    const segmentCopy = __WEBPACK_IMPORTED_MODULE_0_lodash___default.a.clone(segment);
+    return __WEBPACK_IMPORTED_MODULE_0_lodash___default.a.flatten(segmentCopy).sort().join(',');
   });
 }
 
 function buildSegments() {
-  return buildSegmentsArray(_game2.default).map(function (segment) {
-    var _segment$ = _slicedToArray(segment[0], 2),
-        x1 = _segment$[0],
-        y1 = _segment$[1];
-
-    var _segment$2 = _slicedToArray(segment[1], 2),
-        x2 = _segment$2[0],
-        y2 = _segment$2[1];
-
-    var line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+  return buildSegmentsArray(__WEBPACK_IMPORTED_MODULE_1__game_game__["a" /* default */]).map(segment => {
+    const [x1, y1] = segment[0];
+    const [x2, y2] = segment[1];
+    const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
     line.setAttribute('x1', x1);
     line.setAttribute('y1', y1);
     line.setAttribute('x2', x2);
@@ -18810,44 +18540,27 @@ function buildSegments() {
   });
 }
 
-exports.default = buildSegments;
+/* harmony default export */ __webpack_exports__["a"] = (buildSegments);
 
 /***/ }),
 /* 35 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_lodash__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_lodash___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_lodash__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__game_game__ = __webpack_require__(0);
 
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }();
-
-var _lodash = __webpack_require__(0);
-
-var _lodash2 = _interopRequireDefault(_lodash);
-
-var _game = __webpack_require__(1);
-
-var _game2 = _interopRequireDefault(_game);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function buildPointsArray() {
-  return _lodash2.default.uniqWith(_lodash2.default.flattenDepth(_game2.default.layout.hexagons.map(function (hexagon) {
-    return hexagon.points;
-  }), 1), _lodash2.default.isEqual);
+  return __WEBPACK_IMPORTED_MODULE_0_lodash___default.a.uniqWith(__WEBPACK_IMPORTED_MODULE_0_lodash___default.a.flattenDepth(__WEBPACK_IMPORTED_MODULE_1__game_game__["a" /* default */].layout.hexagons.map(hexagon => hexagon.points), 1), __WEBPACK_IMPORTED_MODULE_0_lodash___default.a.isEqual);
 }
 
 function buildNodes() {
-  return buildPointsArray(_game2.default).map(function (point) {
-    var _point = _slicedToArray(point, 2),
-        cx = _point[0],
-        cy = _point[1];
-
-    var circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+  return buildPointsArray(__WEBPACK_IMPORTED_MODULE_1__game_game__["a" /* default */]).map(point => {
+    const [cx, cy] = point;
+    const circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
     circle.setAttribute('r', 0.5);
     circle.setAttribute('cx', cx);
     circle.setAttribute('cy', cy);
@@ -18856,48 +18569,25 @@ function buildNodes() {
   });
 }
 
-exports.default = buildNodes;
+/* harmony default export */ __webpack_exports__["a"] = (buildNodes);
 
 /***/ }),
 /* 36 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_redux__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__game_game__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__reducers_reducers__ = __webpack_require__(51);
 
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
 
-var _lodash = __webpack_require__(0);
 
-var _lodash2 = _interopRequireDefault(_lodash);
+__WEBPACK_IMPORTED_MODULE_1__game_game__["a" /* default */].store = Object(__WEBPACK_IMPORTED_MODULE_0_redux__["b" /* createStore */])(__WEBPACK_IMPORTED_MODULE_2__reducers_reducers__["a" /* default */], {},
+// eslint-disable-next-line no-underscore-dangle
+window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 
-var _redux = __webpack_require__(5);
-
-var _game = __webpack_require__(1);
-
-var _game2 = _interopRequireDefault(_game);
-
-var _reducers = __webpack_require__(51);
-
-var _reducers2 = _interopRequireDefault(_reducers);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function initStore() {
-  return new Promise(function (resolve) {
-    var store = (0, _redux.createStore)(_reducers2.default, {
-      players: _game2.default.players
-    });
-
-    _lodash2.default.merge(_game2.default, { store: store });
-
-    resolve();
-  });
-}
-
-exports.default = initStore;
+/* harmony default export */ __webpack_exports__["a"] = (__WEBPACK_IMPORTED_MODULE_1__game_game__["a" /* default */].store);
 
 /***/ }),
 /* 37 */
@@ -19339,7 +19029,7 @@ function combineReducers(reducers) {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (immutable) */ __webpack_exports__["a"] = bindActionCreators;
+/* unused harmony export default */
 function bindActionCreator(actionCreator, dispatch) {
   return function () {
     return dispatch(actionCreator.apply(undefined, arguments));
@@ -19393,7 +19083,7 @@ function bindActionCreators(actionCreators, dispatch) {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (immutable) */ __webpack_exports__["a"] = applyMiddleware;
+/* unused harmony export default */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__compose__ = __webpack_require__(11);
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
@@ -19446,107 +19136,77 @@ function applyMiddleware() {
 
 /***/ }),
 /* 51 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_redux__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__playerReducer__ = __webpack_require__(52);
 
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
+
+const reducers = Object(__WEBPACK_IMPORTED_MODULE_0_redux__["a" /* combineReducers */])({
+  players: __WEBPACK_IMPORTED_MODULE_1__playerReducer__["a" /* default */]
 });
 
-var _redux = __webpack_require__(5);
-
-var _playerReducer = __webpack_require__(52);
-
-var _playerReducer2 = _interopRequireDefault(_playerReducer);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var reducers = (0, _redux.combineReducers)({
-  players: _playerReducer2.default
-});
-
-exports.default = reducers;
+/* harmony default export */ __webpack_exports__["a"] = (reducers);
 
 /***/ }),
 /* 52 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
-
 function addSettlement(state, action) {
-  return state.map(function (player, index) {
+  return state.map((player, index) => {
     if (index === action.index) {
       return Object.assign({}, player, {
-        settlements: [].concat(_toConsumableArray(player.settlements), [action.coordinate])
+        settlements: [...player.settlements, action.coordinate]
       });
     }
     return player;
   });
 }
 
-var playerReducer = function playerReducer() {
-  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
-  var action = arguments[1];
-
+const playerReducer = (state = [], action) => {
   if (action.type === 'ADD_SETTLEMENT') {
     return addSettlement(state, action);
   }
   return state;
 };
 
-exports.default = playerReducer;
+/* harmony default export */ __webpack_exports__["a"] = (playerReducer);
 
 /***/ }),
 /* 53 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_lodash__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_lodash___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_lodash__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__game_game__ = __webpack_require__(0);
 
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _lodash = __webpack_require__(0);
-
-var _lodash2 = _interopRequireDefault(_lodash);
-
-var _game = __webpack_require__(1);
-
-var _game2 = _interopRequireDefault(_game);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function appendSVG() {
-  return new Promise(function (resolve) {
-    var catan = document.getElementById('catan');
+  return new Promise(resolve => {
+    const catan = document.getElementById('catan');
 
-    _lodash2.default.each(_game2.default.svg.hexagons, function (group) {
+    __WEBPACK_IMPORTED_MODULE_0_lodash___default.a.each(__WEBPACK_IMPORTED_MODULE_1__game_game__["a" /* default */].svg.hexagons, group => {
       catan.appendChild(group);
     });
 
-    _lodash2.default.each(_game2.default.svg.segments, function (segment) {
+    __WEBPACK_IMPORTED_MODULE_0_lodash___default.a.each(__WEBPACK_IMPORTED_MODULE_1__game_game__["a" /* default */].svg.segments, segment => {
       catan.appendChild(segment);
     });
 
-    _lodash2.default.each(_game2.default.svg.nodes, function (node) {
+    __WEBPACK_IMPORTED_MODULE_0_lodash___default.a.each(__WEBPACK_IMPORTED_MODULE_1__game_game__["a" /* default */].svg.nodes, node => {
       catan.appendChild(node);
     });
 
-    resolve(_game2.default);
+    resolve(__WEBPACK_IMPORTED_MODULE_1__game_game__["a" /* default */]);
   });
 }
 
-exports.default = appendSVG;
+/* harmony default export */ __webpack_exports__["a"] = (appendSVG);
 
 /***/ })
 /******/ ]);
