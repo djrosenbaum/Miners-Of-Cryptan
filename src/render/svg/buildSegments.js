@@ -1,5 +1,7 @@
 import _ from 'lodash';
-import game from '../../game/game';
+import store from '../../redux/store';
+
+let game;
 
 function buildSegmentsArray() {
   const segmentArray = _.flattenDepth(game.layout.hexagons.map((hexagon) => {
@@ -21,6 +23,8 @@ function buildSegmentsArray() {
 }
 
 function buildSegments() {
+  game = store.getState();
+
   return buildSegmentsArray(game).map((segment) => {
     const [x1, y1] = segment[0];
     const [x2, y2] = segment[1];

@@ -1,12 +1,16 @@
 import _ from 'lodash';
-import game from '../../game/game';
-import graphicLocation from '../../lookup/graphicLocation';
+import store from '../../redux/store';
+import graphicLocation from '../../config/graphicLocation';
+import probability from '../../config/probability';
 
 const ns = 'http://www.w3.org/2000/svg';
+let game;
 
 function buildHexagons() {
+  game = store.getState();
+
   return game.layout.hexagons.map((hexagon) => {
-    const gameTile = _.find(game.gameTiles, { grid: hexagon.coordinate.join('_') });
+    const tile = _.find(game.tiles, { grid: hexagon.coordinate.join('_') });
     const group = document.createElementNS(ns, 'g');
 
     const polygon = document.createElementNS(ns, 'polygon');
@@ -21,7 +25,7 @@ function buildHexagons() {
     circle.classList.add('centerPoint');
     group.appendChild(circle);
 
-    const tileNumber = gameTile.number;
+    const tileNumber = tile.number;
     if (tileNumber) {
       const text1 = document.createElementNS(ns, 'text');
       text1.setAttribute('x', hexagon.centerPoint[0]);
@@ -33,21 +37,20 @@ function buildHexagons() {
       group.appendChild(text1);
     }
 
-    const probability = game.rules.probability[tileNumber];
-    if (probability) {
+    if (probability[tileNumber]) {
       const text2 = document.createElementNS(ns, 'text');
       text2.setAttribute('x', hexagon.centerPoint[0]);
       text2.setAttribute('y', hexagon.centerPoint[1]);
       text2.setAttribute('dy', 20);
       text2.setAttribute('text-anchor', 'middle');
       text2.classList.add('tileProbability');
-      text2.textContent = Array(game.rules.probability[tileNumber]).fill('\u2022').join('');
+      text2.textContent = Array(probability[tileNumber]).fill('\u2022').join('');
       group.appendChild(text2);
     }
 
-    if (probability) {
+    if (probability[tileNumber]) {
       const terrain = document.createElementNS(ns, 'image');
-      terrain.setAttributeNS('http://www.w3.org/1999/xlink', 'href', graphicLocation[gameTile.terrain]);
+      terrain.setAttributeNS('http://www.w3.org/1999/xlink', 'href', graphicLocation[tile.terrain]);
       terrain.setAttribute('width', '35');
       terrain.setAttribute('x', hexagon.centerPoint[0] - 17);
       terrain.setAttribute('y', hexagon.centerPoint[1] - 25);

@@ -1,5 +1,7 @@
 import _ from 'lodash';
-import game from '../../game/game';
+import store from '../../redux/store';
+
+let game;
 
 function buildPointsArray() {
   return _.uniqWith(_.flattenDepth(game.layout.hexagons
@@ -7,6 +9,7 @@ function buildPointsArray() {
 }
 
 function buildNodes() {
+  game = store.getState();
   return buildPointsArray(game).map((point) => {
     const [cx, cy] = point;
     const circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
