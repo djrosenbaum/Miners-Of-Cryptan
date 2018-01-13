@@ -4,28 +4,29 @@ import numberTokens from '../../config/numberTokens';
 import tileGrid from '../../config/tileGrid';
 
 let shuffledTerrains;
-let numberTokensCopy;
 
 function buildTile(coordinate, index) {
-  const tile = {
-    terrain: shuffledTerrains[index],
-    grid: coordinate,
-  };
+  if (index < numberTokens.length) {
+    const tile = {
+      terrain: shuffledTerrains[index],
+      grid: coordinate,
+    };
 
-  if (tile.terrain === 'desert') {
-    tile.robber = true;
+    return {
+      ...numberTokens[index],
+      ...tile,
+    };
   }
-
   return {
-    ...numberTokensCopy[index],
-    ...tile,
+    terrain: 'desert',
+    grid: coordinate,
+    robber: true,
   };
 }
 
 function tiles() {
-  shuffledTerrains = _.shuffle(terrains());
-  numberTokensCopy = [...numberTokens];
-  numberTokensCopy.splice(shuffledTerrains.indexOf('desert'), 0, {});
+  shuffledTerrains = _.shuffle(terrains);
+  shuffledTerrains.splice(shuffledTerrains.indexOf('desert'), 1);
   return tileGrid.map(buildTile);
 }
 

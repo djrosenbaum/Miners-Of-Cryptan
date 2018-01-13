@@ -23,6 +23,6 @@ function generateTerrainArray() {
   return terrainArray;
 }
 
-const terrains = () => (generateTerrainArray());
+const terrains = generateTerrainArray();
 
 export default terrains;
