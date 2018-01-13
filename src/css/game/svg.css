@@ -1,0 +1,42 @@
+.svg_wrapper {
+  display: inline-block;
+  left: 50%;
+  perspective: 3000px;     
+  position: absolute;      
+  transform: translateX(-50%);
+}
+
+svg {
+  transform-style: preserve-3d;
+  transform: rotateX(40deg) rotateY(0);
+}
+
+svg polygon {
+  fill: #F8F8F8;
+}
+
+svg line {
+  stroke-width: 1;
+  stroke: #ccc;
+  vector-effect: non-scaling-stroke;
+}
+
+svg circle {
+  visibility: hidden;
+  fill: #777;
+}
+
+svg text {
+  font-family: 'Stoke', sans-serif;
+  fill: #333;
+  user-select: none;
+  letter-spacing: 1px;
+}
+
+text.tileNumber {
+  font-size: 10px;
+}
+
+text.tileProbability {
+  font-size: 5px;
+}
