@@ -20,10 +20,12 @@
   },
   "homepage": "https://github.com/djrosenbaum/Miners-Of-Cryptan#readme",
   "devDependencies": {
+    "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",
     "babel-eslint": "^8.0.3",
     "babel-loader": "^7.1.2",
     "babel-preset-es2017": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
     "babel-preset-stage-2": "^6.24.1",
     "chai": "^4.1.2",
     "copy-webpack-plugin": "^4.3.1",
@@ -45,6 +47,8 @@
   },
   "dependencies": {
     "lodash": "^4.17.4",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
     "redux": "^3.7.2"
   }
 }

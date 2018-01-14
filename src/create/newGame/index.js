@@ -15,15 +15,3 @@ function newGame(settings) {
 }
 
 export default newGame;
-
-
-// function startNewGame(settings) {
-//   newGame(settings)
-// .then(newLayout)
-// .then(generateSVG)
-// .then(appendSVG)
-//     .then(() => {
-//       console.log('success!');
-//     })
-//     .catch(err => console.error(err));
-// }
