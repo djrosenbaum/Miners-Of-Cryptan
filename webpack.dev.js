@@ -1,12 +1,12 @@
 const path = require('path');
 const webpack = require('webpack');
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+// const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
-  entry: ['./src/index.js', './src/index.css'],
+  entry: ['./src/index.jsx', './src/index.css'],
   output: {
     filename: 'bundle.js',
     path: path.resolve(__dirname, 'dist'),
@@ -14,10 +14,9 @@ module.exports = {
   plugins: [
     new webpack.DefinePlugin({
       'process.env': {
-        NODE_ENV: JSON.stringify('production'),
+        NODE_ENV: JSON.stringify('development'),
       },
     }),
-    new UglifyJsPlugin(),
     new HtmlWebpackPlugin({
       template: './src/html/index.html',
     }),
@@ -38,17 +37,27 @@ module.exports = {
         },
       },
       {
+        test: /\.jsx$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader',
+        },
+      },
+      {
         test: /\.css$/,
         use: ExtractTextPlugin.extract({
           fallback: 'style-loader',
           use: [{
             loader: 'css-loader',
             options: {
-              minimize: true,
+              minimize: false,
             },
           }],
         }),
       },
     ],
+  },
+  resolve: {
+    extensions: ['.js', '.jsx'],
   },
 };

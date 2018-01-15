@@ -1,12 +1,14 @@
 import { combineReducers } from 'redux';
-import players from './players';
-import tiles from './tiles';
 import layout from './layout';
+import players from './players';
+import settings from './settings';
+import tiles from './tiles';
 
 const reducers = combineReducers({
-  players,
-  tiles,
   layout,
+  players,
+  settings,
+  tiles,
 });
 
 export default reducers;

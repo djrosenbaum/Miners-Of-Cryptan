@@ -10,7 +10,6 @@ const store = createStore(
 );
 
 store.subscribe(() => {
-  console.log('the store updated!');
   renderSVG();
 });
 
