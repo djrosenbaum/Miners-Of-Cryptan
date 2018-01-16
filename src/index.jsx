@@ -1,7 +1,7 @@
 import { Provider } from 'react-redux';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './react/app.jsx';
+import App from './react/app';
 import store from './redux/store';
 // import newGame from './create/newGame';
 
