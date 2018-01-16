@@ -35,7 +35,7 @@ class Intro extends Component {
     return (
       <div>
         <div id="intro" className="intro">
-          <div>
+          <div className="settingsWrapper">
             <div className="gameName">{this.state.gameName}</div>
             <div className="settings">
               <div className="setting">
@@ -52,7 +52,7 @@ class Intro extends Component {
               </div>
             </div>
             <div className="play_wrapper">
-              <div id="play" className="play" onClick={this.newGame}>PLAY</div>
+              <button id="play" className="play" onClick={this.newGame}>PLAY</button>
             </div>
           </div>
         </div>

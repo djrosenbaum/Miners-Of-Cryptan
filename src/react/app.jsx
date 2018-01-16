@@ -4,9 +4,7 @@ import Intro from './components/intro';
 class App extends Component {
   render() {
     return (
-      <div>
-        <Intro />
-      </div>
+      <Intro />
     );
   }
 }
