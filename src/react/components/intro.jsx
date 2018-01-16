@@ -1,27 +1,36 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import newGame from '../../create/newGame';
 
 class Intro extends Component {
   constructor(props) {
     super(props);
     this.state = {
       gameName: 'Miners of Cryptan',
+      totalPlayers: 3,
+      color: 'orange',
     };
   }
 
-  setNumberOfPlayers = (e) => {
-    console.log('setNumberOfPlayers:', e.currentTarget.innerText);
-    this.props.dispatch({
-      type: 'UPDATE_SETTINGS',
-      payload: {
-        number_of_players: e.currentTarget.innerText,
+  setTotalPlayers = (e) => {
+    this.setState({ totalPlayers: parseInt(e.target.value, 10) });
+  }
+
+  setColor = (e) => {
+    this.setState({ color: e.target.value });
+  }
+
+  newGame = (e) => {
+    newGame({
+      players: {
+        color: this.state.color,
+        totalPlayers: this.state.totalPlayers,
       },
     });
   }
 
   render() {
-    const colors = ['blue', 'orange', 'white', 'red'];
-    const colorButtons = colors.map(color => (<button key={color} className={['selection', 'color', color].join(' ')} />));
+    const { totalPlayers, color } = this.state;
 
     return (
       <div>
@@ -31,16 +40,19 @@ class Intro extends Component {
             <div className="settings">
               <div className="setting">
                 <div className="description">Number of Players:</div>
-                <button className="selection number" onClick={this.setNumberOfPlayers}>3</button>
-                <button className="selection number" onClick={this.setNumberOfPlayers}>4</button>
+                <button value="3" className={"selection number" + (totalPlayers === 3 ? ' selected' : '')} onClick={this.setTotalPlayers}>3</button>
+                <button value="4" className={"selection number" + (totalPlayers === 4 ? ' selected' : '')} onClick={this.setTotalPlayers}>4</button>
               </div>
               <div className="setting">
                 <div className="description">Select Your Color:</div>
-                {colorButtons}
+                <button value="blue" className={"selection color blue" + (color === 'blue' ? ' selected' : '')} onClick={this.setColor} />
+                <button value="orange" className={"selection color orange" + (color === 'orange' ? ' selected' : '')} onClick={this.setColor} />
+                <button value="white" className={"selection color white" + (color === 'white' ? ' selected' : '')} onClick={this.setColor} />
+                <button value="red" className={"selection color red" + (color === 'red' ? ' selected' : '')} onClick={this.setColor} />
               </div>
             </div>
             <div className="play_wrapper">
-              <div id="play" className="play">PLAY</div>
+              <div id="play" className="play" onClick={this.newGame}>PLAY</div>
             </div>
           </div>
         </div>
@@ -49,6 +61,6 @@ class Intro extends Component {
   }
 }
 
-const mapStateToProps = state => ({ players: state.players });
+const mapStateToProps = state => ({ settings: state.settings });
 
 export default connect(mapStateToProps)(Intro);
